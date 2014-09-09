@@ -2,46 +2,34 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="#cccccc"
     android:gravity="center_vertical"
-    
-    android:background="#cccccc">
-    
-   	<TextView 
-        android:id="@+id/lblInicio"
-        android:text="Localizacao"
-        
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-		android:layout_margin="5dp" />
-     
-    <EditText 
+    android:orientation="vertical" >
+
+    <EditText
         android:id="@+id/textInicio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-		android:layout_margin="5dp"
-		android:hint="Início"
-        android:inputType="textPostalAddress"/>
-    
-    <EditText 
+        android:layout_margin="5dp"
+        android:hint="Partida"
+        android:inputType="textPostalAddress" />
+
+    <EditText
         android:id="@+id/textFim"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:hint="Fim"
-        android:inputType="textPostalAddress"/>
-    
-    <Button 
+        android:hint="Destino"
+        android:inputType="textPostalAddress" />
+
+    <Button
         android:id="@+id/btnNavegar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:text="Navegar"
-        android:clickable="true"
-        android:textColor="@android:color/white"
         android:background="#005e5e"
-        />
-    
-     
- 
+        android:clickable="true"
+        android:text="Navegar"
+        android:textColor="@android:color/white" />
+
 </LinearLayout>

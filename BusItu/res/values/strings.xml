@@ -3,5 +3,8 @@
 
     <string name="app_name">BusItu</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_linhas_detail">LinhasDetail</string>
+    <string name="action_settings">Settings</string>
+    <string name="detail_linha">Linha</string>
 
 </resources>

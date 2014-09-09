@@ -3,7 +3,7 @@
     package="br.com.tcc.busitu"
     android:versionCode="1"
     android:versionName="1.0" >
-    
+
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <uses-sdk
@@ -12,21 +12,44 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher" 
+        android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/Theme.Busitutheme"
         android:uiOptions="splitActionBarWhenNarrow"
-        
          >
-         <meta-data android:name="com.google.android.gms.version"
-        android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
         <activity
-            android:name="br.com.tcc.busitu.controller.MainActivity"
-            android:label="@string/app_name" >
+            android:name=".controller.MainActivity"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="stateHidden" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name=".database.LinhaProvider"
+            android:authorities="br.com.tcc.busitu.provider"
+            android:enabled="true"
+            android:exported="false" >
+        </provider>
+
+        <activity
+            android:name="br.com.tcc.busitu.controller.LinhasDetail"
+            android:label="@string/title_activity_linhas_detail" >
+            <intent-filter android:label="@string/detail_linha" >
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.EDIT" />
+
+                <data android:mimeType="vnd.android.cursor.item/vnd.google.linha" />
+                <data android:mimeType="vnd.android.cursor.dir/vnd.google.linha" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
     </application>
