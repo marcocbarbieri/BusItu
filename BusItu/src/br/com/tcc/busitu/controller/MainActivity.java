@@ -91,6 +91,10 @@ public class MainActivity extends FragmentActivity implements
 				// Log.i("AndroidRuntime", "latitude: " +
 				// localLocation.getLatitude() + " Longitude: " +
 				// localLocation.getLongitude());
+				
+				Intent it = new Intent(this, MapActivity.class);
+				it.putExtra("currentLocation", mCurrentLocation);
+				startActivity(it);
 
 				return true;
 
