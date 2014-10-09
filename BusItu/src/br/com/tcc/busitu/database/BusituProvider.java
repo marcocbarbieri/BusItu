@@ -166,7 +166,7 @@ public class BusituProvider extends ContentProvider {
 			result = BusituDatabaseHelper
 					.getInstance(getContext())
 					.getReadableDatabase()
-					.query(PercursoBean.TABLE_NAME, PercursoBean.PROJECTION,
+					.query(PercursoBean.TABLE_NAME, PercursoBean.COLUMNS,
 							"id_linha" + " IS ?",
 							new String[] { String.valueOf(id) }, null, null,
 							null, null);

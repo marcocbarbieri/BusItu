@@ -72,7 +72,5 @@ public class BusituDatabaseHelper extends SQLiteAssetHelper {
 		}
 		db.close();
 		return linhas;
-		
-	}
-	
+}
 }
