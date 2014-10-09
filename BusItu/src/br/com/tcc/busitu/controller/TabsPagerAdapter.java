@@ -1,9 +1,6 @@
-package br.com.tcc.busitu.model;
+package br.com.tcc.busitu.controller;
 
 import br.com.tcc.busitu.R;
-import br.com.tcc.busitu.controller.FavActivity;
-import br.com.tcc.busitu.controller.LinhasActivity;
-import br.com.tcc.busitu.controller.NavegarActivity;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;

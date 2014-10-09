@@ -1,35 +1,192 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#cccccc"
-    android:gravity="center_vertical"
-    android:orientation="vertical" >
+    android:layout_height="wrap_content"
+    android:background="#cccccc" >
 
-    <EditText
-        android:id="@+id/textInicio"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:hint="Partida"
-        android:inputType="textPostalAddress" />
+        android:background="#cccccc"
+        android:gravity="top"
+        android:orientation="vertical" >
 
-    <EditText
-        android:id="@+id/textFim"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:hint="Destino"
-        android:inputType="textPostalAddress" />
+        <TextView
+            android:id="@+id/labelPesquisar"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="12dp"
+            android:background="@android:color/white"
+            android:clickable="true"
+            android:gravity="center"
+            android:paddingBottom="0dp"
+            android:text="PESQUISAR"
+            android:textSize="26sp"
+            android:typeface="monospace" />
 
-    <Button
-        android:id="@+id/btnNavegar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:background="#005e5e"
-        android:clickable="true"
-        android:text="Navegar"
-        android:textColor="@android:color/white" />
+        <LinearLayout
+            android:id="@+id/llPesquisar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/rounded_corners_white"
+            android:orientation="vertical"
+            android:padding="4dp" >
 
-</LinearLayout>
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <RadioButton
+                    android:id="@+id/checkBoxRuaPesquisar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Rua" />
+
+                <RadioButton
+                    android:id="@+id/checkBoxBairroPesquisar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Bairro" />
+
+                <RadioButton
+                    android:id="@+id/checkBoxLinhaPesquisar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Linha" />
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/textPesquisar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:hint="Rua, Bairro ou Linha"
+                android:inputType="textPostalAddress" />
+
+            <Button
+                android:id="@+id/btnPesquisar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="#005e5e"
+                android:text="Pesquisar"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/labelNavegar"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="12dp"
+            android:background="@android:color/white"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="CRIAR ROTA"
+            android:textSize="26sp"
+            android:typeface="monospace" />
+
+        <LinearLayout
+            android:id="@+id/llRota"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/rounded_corners_white"
+            android:orientation="vertical"
+            android:padding="4dp" >
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <RadioButton
+                    android:id="@+id/checkBoxRua"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Rua" />
+
+                <RadioButton
+                    android:id="@+id/checkBoxBairro"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Bairro" />
+
+                <RadioButton
+                    android:id="@+id/checkBoxLinha"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Linha" />
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/textInicio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:hint="Partida"
+                android:inputType="textPostalAddress" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <RadioButton
+                    android:id="@+id/checkBoxRuaDestino"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Rua" />
+
+                <RadioButton
+                    android:id="@+id/checkBoxBairroDestino"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Bairro" />
+
+                <RadioButton
+                    android:id="@+id/checkBoxLinhaDestino"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Linha" />
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/textFim"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:hint="Destino"
+                android:inputType="textPostalAddress" />
+
+            <Button
+                android:id="@+id/btnNavegar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="#005e5e"
+                android:padding="4dp"
+                android:text="Navegar"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

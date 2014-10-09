@@ -5,7 +5,9 @@ import br.com.tcc.busitu.R.id;
 import br.com.tcc.busitu.R.layout;
 import br.com.tcc.busitu.R.menu;
 import br.com.tcc.busitu.database.Linha;
-import br.com.tcc.busitu.database.LinhaProvider;
+import br.com.tcc.busitu.database.BusituProvider;
+import br.com.tcc.busitu.model.LinhaBean;
+import br.com.tcc.busitu.model.PercursoBean;
 import android.app.Activity;
 import android.app.ActionBar;
 import android.database.Cursor;
@@ -60,7 +62,8 @@ public class LinhasDetail extends FragmentActivity {
 	public static class PlaceholderFragment extends ListFragment {
 
 		//public static final String[] PROJECTION = { "_id", "nome", "rota", "regiao_atendida", "tempo", "id_linha"};
-		public static final String[] PROJECTION = { "nome", "rota", "regiao_atendida", "tempo" };
+		public static final String[] PROJECTION = { LinhaBean.COL_NOME, PercursoBean.COL_REGIAO_ATENDIDA, 
+			PercursoBean.COL_ROTA, PercursoBean.COL_REGIAO_ATENDIDA };
 		
 		public PlaceholderFragment() {
 		}

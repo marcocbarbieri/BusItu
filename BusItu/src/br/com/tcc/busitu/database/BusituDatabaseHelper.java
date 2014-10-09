@@ -1,6 +1,12 @@
 package br.com.tcc.busitu.database;
 
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
+import br.com.tcc.busitu.model.LinhaBean;
+
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
 import android.content.Context;
@@ -16,7 +22,7 @@ public class BusituDatabaseHelper extends SQLiteAssetHelper {
 	// If you change the database schema, you must increment the database
 	// version.
 	public static final int DATABASE_VERSION = 1;
-	public static final String DATABASE_NAME = "busituDEMO2.db";
+	public static final String DATABASE_NAME = "busituDEMO_V03.db";
 	
 	private static BusituDatabaseHelper singleton;
 	
@@ -30,6 +36,7 @@ public class BusituDatabaseHelper extends SQLiteAssetHelper {
 	public BusituDatabaseHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
 	}
+	
 	
 	public synchronized Linha getLinha(final long id){
 		final SQLiteDatabase db = this.getReadableDatabase();
@@ -46,6 +53,26 @@ public class BusituDatabaseHelper extends SQLiteAssetHelper {
 		}
 		cursor.close();
 		return item;
+	}
+	
+	public synchronized List<LinhaBean> getLinhas(){
+		
+		final SQLiteDatabase db = this.getReadableDatabase();
+		final Cursor cursor = db.query(LinhaBean.TABLE_NAME, null, null, null, null, null, null);
+		List<LinhaBean> linhas =  new ArrayList();
+		
+		if(cursor.equals(null)){
+			linhas = null;
+		}
+		else if(cursor.moveToFirst()){
+			linhas.add(new LinhaBean(cursor));
+			while(cursor.moveToNext()){
+				linhas.add(new LinhaBean(cursor));
+			}
+		}
+		db.close();
+		return linhas;
+		
 	}
 	
 }

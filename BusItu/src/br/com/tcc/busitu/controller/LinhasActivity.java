@@ -2,7 +2,7 @@ package br.com.tcc.busitu.controller;
 
 import br.com.tcc.busitu.R;
 import br.com.tcc.busitu.database.Linha;
-import br.com.tcc.busitu.database.LinhaProvider;
+import br.com.tcc.busitu.database.BusituProvider;
 import android.content.ContentUris;
 import android.content.Intent;
 import android.database.Cursor;
@@ -38,7 +38,7 @@ public class LinhasActivity extends ListFragment {
 			@Override
 			public Loader<Cursor> onCreateLoader(int id, Bundle args) {
 				return new CursorLoader(getActivity(),
-						LinhaProvider.URI_LINHAS, Linha.FIELDS, null, null,
+						BusituProvider.URI_LINHA, Linha.FIELDS, null, null,
 						null);
 			}
 
@@ -58,7 +58,7 @@ public class LinhasActivity extends ListFragment {
 	public void onListItemClick(ListView l, View v, int position, long id) {
 
 		// content://br.com.tcc.busitu.provider/linha/2
-		Uri uri = ContentUris.withAppendedId(LinhaProvider.URI_LINHAS_ID, id);
+		Uri uri = ContentUris.withAppendedId(BusituProvider.URI_LINHA_ID, id);
 		
 		startActivity(new Intent(Intent.ACTION_EDIT, uri));
 
