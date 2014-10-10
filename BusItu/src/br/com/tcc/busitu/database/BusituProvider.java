@@ -111,10 +111,6 @@ public class BusituProvider extends ContentProvider {
 		 */
 		switch (sUriMatcher.match(uri)) {
 
-/*		case INT_URI_LINHAS:
-			return Linha.CONTENT_TYPE;
-		case INT_URI_LINHA:
-			return Linha.CONTENT_ITEM_TYPE;*/
 		case 11:
 			return LinhaBean.CONTENT_TYPE;
 		case 12:
@@ -184,9 +180,9 @@ public class BusituProvider extends ContentProvider {
 			   		+ "FROM linha "
 			   		+ "INNER JOIN percurso "
 			   		+ "ON linha._id = percurso.id_linha "
-			   		+ "AND percurso.rota LIKE '%?%';";
+			   		+ "AND percurso.rota LIKE '?';";
 			   
-			   db.rawQuery(query, new String[]{item});
+			   db.rawQuery(query, new String[]{"%" + item + "%"});
 
 		default:
 			throw new UnsupportedOperationException("Not yet implemented");

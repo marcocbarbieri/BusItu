@@ -52,18 +52,33 @@ public class NavegarActivity extends Fragment {
 			public void onClick(View v) {
 				
 				String item = etPesquisar.getText().toString();
+//				String item = "Gazzola";
 				   SQLiteDatabase db = BusituDatabaseHelper.getInstance(getActivity()).getReadableDatabase();
 				   
-				   String query = ""
-				   		+ "SELECT "
+				   String query = 
+						  "SELECT "
 				   		+ 		"linha.numero_onibus, linha.nome "
 				   		+ "FROM linha "
 				   		+ "INNER JOIN percurso "
 				   		+ "ON linha._id = percurso.id_linha "
-				   		+ "AND percurso.rota LIKE ?";
+				   		+ "AND percurso.rota LIKE ? COLLATE NOCASE";
 				   
-				Cursor cursor =   db.rawQuery(query, new String[]{"%"+item+"%"});
-				   Log.d("query", cursor.getString(0));
+				   String[] selectionArgs = new String[]{"%" + item + "%"};
+				   
+				   
+				Cursor cursor =   db.rawQuery(query, selectionArgs );
+				//cursor.moveToNext();
+				Log.d("query", selectionArgs[0]);  
+				Log.d("query", query);
+				
+				if(cursor.moveToFirst()){
+					while(cursor.moveToNext()){
+						Log.d("query", cursor.getLong(cursor.getColumnIndex("numero_onibus")) + " - " 
+							+	cursor.getString(cursor.getColumnIndex("nome")));
+					}
+				}
+				
+				
 				
 			}
 		});

@@ -1,21 +1,12 @@
 package br.com.tcc.busitu.database;
 
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-
-import br.com.tcc.busitu.model.LinhaBean;
 
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteDatabase.CursorFactory;
-import android.database.sqlite.SQLiteOpenHelper;
-import android.database.sqlite.SQLiteQueryBuilder;
-import android.util.Log;
 
 public class BusituDatabaseHelper extends SQLiteAssetHelper {
 
@@ -55,7 +46,7 @@ public class BusituDatabaseHelper extends SQLiteAssetHelper {
 		return item;
 	}
 	
-	public synchronized List<LinhaBean> getLinhas(){
+/*	public synchronized List<LinhaBean> getLinhas(){
 		
 		final SQLiteDatabase db = this.getReadableDatabase();
 		final Cursor cursor = db.query(LinhaBean.TABLE_NAME, null, null, null, null, null, null);
@@ -72,5 +63,5 @@ public class BusituDatabaseHelper extends SQLiteAssetHelper {
 		}
 		db.close();
 		return linhas;
-}
+}*/
 }

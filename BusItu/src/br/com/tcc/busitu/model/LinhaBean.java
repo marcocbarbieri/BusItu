@@ -2,7 +2,7 @@ package br.com.tcc.busitu.model;
 
 import android.database.Cursor;
 
-public class LinhaBean {
+public abstract class LinhaBean {
 	
 	public static final String TABLE_NAME = "linha";
 	public static final String COL_ID = "_id";
