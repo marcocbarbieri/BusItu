@@ -1,4 +1,4 @@
-package br.com.tcc.busitu.database;
+package br.com.tcc.busitu.model;
 
 
 
@@ -29,24 +29,7 @@ public class BusituDatabaseHelper extends SQLiteAssetHelper {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
 	}
 	
-	
-	public synchronized Linha getLinha(final long id){
-		final SQLiteDatabase db = this.getReadableDatabase();
-		final Cursor cursor = db.query(Linha.TABLE_NAME, Linha.FIELDS,
-				Linha.COL_ID + " IS ?", new String[] { String.valueOf(id) },
-				null, null, null, null);
-		if (cursor == null || cursor.isAfterLast()) {
-			return null;
-		}
-
-		Linha item = null;
-		if (cursor.moveToFirst()) {
-			item = new Linha(cursor);
-		}
-		cursor.close();
-		return item;
-	}
-	
+		
 /*	public synchronized List<LinhaBean> getLinhas(){
 		
 		final SQLiteDatabase db = this.getReadableDatabase();

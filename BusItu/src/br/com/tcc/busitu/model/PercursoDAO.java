@@ -2,7 +2,6 @@ package br.com.tcc.busitu.model;
 
 import java.io.Serializable;
 
-import br.com.tcc.busitu.database.BusituDatabaseHelper;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;

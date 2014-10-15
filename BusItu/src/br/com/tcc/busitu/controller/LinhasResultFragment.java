@@ -4,7 +4,6 @@ import br.com.tcc.busitu.R;
 import br.com.tcc.busitu.R.id;
 import br.com.tcc.busitu.R.layout;
 import br.com.tcc.busitu.R.menu;
-import br.com.tcc.busitu.database.BusituProvider;
 import br.com.tcc.busitu.model.LinhaBean;
 import br.com.tcc.busitu.model.PercursoBean;
 import br.com.tcc.busitu.model.PercursoDAO;

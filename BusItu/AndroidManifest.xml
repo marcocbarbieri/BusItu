@@ -43,12 +43,6 @@
             </intent-filter>
         </activity>
 
-        <provider
-            android:name=".database.BusituProvider"
-            android:authorities="br.com.tcc.busitu.provider"
-            android:enabled="true"
-            android:exported="false" >
-        </provider>
 
         <activity
             android:name=".controller.LinhasDetail"
@@ -56,9 +50,6 @@
             <intent-filter android:label="@string/detail_linha" >
                 <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.EDIT" />
-
-                <data android:mimeType="vnd.android.cursor.item/vnd.google.linha" />
-                <data android:mimeType="vnd.android.cursor.dir/vnd.google.linha" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>

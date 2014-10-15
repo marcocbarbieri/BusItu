@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
-import br.com.tcc.busitu.database.BusituDatabaseHelper;
 
 public class LinhaDAO {
 	private SQLiteDatabase db;

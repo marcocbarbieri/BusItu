@@ -1,8 +1,6 @@
 package br.com.tcc.busitu.controller;
 
 import br.com.tcc.busitu.R;
-import br.com.tcc.busitu.database.Linha;
-import br.com.tcc.busitu.database.BusituProvider;
 import br.com.tcc.busitu.model.LinhaBean;
 import br.com.tcc.busitu.model.LinhaDAO;
 import br.com.tcc.busitu.model.PercursoBean;
@@ -46,7 +44,7 @@ public class LinhasActivity extends ListFragment {
 		
 		setListAdapter(new SimpleCursorAdapter(getActivity(),
 				R.layout.linha_listitem, mCursor, new String[] {
-						Linha.COL_NUMERO_ONIBUS, Linha.COL_NOME }, new int[] {
+						LinhaBean.COL_NUMERO_ONIBUS, LinhaBean.COL_NOME }, new int[] {
 						R.id.cardNumero, R.id.cardLinha }, 0));
 
 //		// Load the content

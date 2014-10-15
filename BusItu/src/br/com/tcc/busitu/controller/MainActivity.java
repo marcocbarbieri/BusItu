@@ -7,7 +7,7 @@ import com.google.android.gms.location.LocationClient;
 
 import br.com.tcc.busitu.R;
 import br.com.tcc.busitu.R.layout;
-import br.com.tcc.busitu.database.BusituDatabaseHelper;
+import br.com.tcc.busitu.model.BusituDatabaseHelper;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.Activity;
