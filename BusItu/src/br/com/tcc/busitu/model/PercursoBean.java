@@ -1,8 +1,12 @@
 package br.com.tcc.busitu.model;
 
+import java.io.Serializable;
+
 import android.database.Cursor;
 
-public class PercursoBean {
+public class PercursoBean implements Serializable{
+	
+	private static final long serialVersionUID = 4392063217469129025L;
 	
 	public static final String TABLE_NAME = "percurso";
 	public static final String COL_ID = "_id";
@@ -11,6 +15,8 @@ public class PercursoBean {
 	public static final String COL_REGIAO_ATENDIDA = "regiao_atendida";
 	public static final String COL_TEMPO_PERCURSO = "tempo_percurso";
 	public static final String COL_ID_LINHA = "id_linha";
+	
+	private static Cursor resultado;
 	
 	public static final String[] COLUMNS = new String[] { COL_ID + ", " + COL_NOME + ", " + COL_ROTA + ", " 
 	+ COL_REGIAO_ATENDIDA + ", " + COL_TEMPO_PERCURSO + ", " + COL_ID_LINHA};
@@ -26,13 +32,7 @@ public class PercursoBean {
 	private String tempoPercurso;
 	private int id_linha;
 		
-	public PercursoBean(final Cursor cursor) {
-		this._id = cursor.getInt(0);
-		this.nome = cursor.getString(1);
-		this.rota = cursor.getString(2);
-		this.regiaoAtendida = cursor.getString(3);
-		this.tempoPercurso = cursor.getString(4);
-		this.id_linha = cursor.getInt(5);
+	public PercursoBean() {
 	}
 	
 	public int get_id() {
@@ -70,6 +70,14 @@ public class PercursoBean {
 	}
 	public void setLinha(int linha) {
 		this.id_linha = linha;
+	}
+
+	public Cursor getResultado() {
+		return resultado;
+	}
+
+	public void setResultado(Cursor resultado) {
+		this.resultado = resultado;
 	}
 	
 	

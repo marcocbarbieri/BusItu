@@ -38,26 +38,27 @@
             android:padding="4dp" >
 
             <RadioGroup
+                android:id="@+id/checkBoxPesquisar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal" >
 
                 <RadioButton
-                    android:id="@+id/checkBoxRuaPesquisar"
+                    android:id="@+id/checkBoxPesquisarRua"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Rua" />
 
                 <RadioButton
-                    android:id="@+id/checkBoxBairroPesquisar"
+                    android:id="@+id/checkBoxPesquisarBairro"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Bairro" />
 
                 <RadioButton
-                    android:id="@+id/checkBoxLinhaPesquisar"
+                    android:id="@+id/checkBoxPesquisarLinha"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -108,26 +109,27 @@
             android:padding="4dp" >
 
             <RadioGroup
+                android:id="@+id/checkBoxNavegar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal" >
 
                 <RadioButton
-                    android:id="@+id/checkBoxRua"
+                    android:id="@+id/checkBoxNavegarRua"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Rua" />
 
                 <RadioButton
-                    android:id="@+id/checkBoxBairro"
+                    android:id="@+id/checkBoxNavegarBairro"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Bairro" />
 
                 <RadioButton
-                    android:id="@+id/checkBoxLinha"
+                    android:id="@+id/checkBoxNavegarLinha"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"

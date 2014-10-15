@@ -1,8 +1,16 @@
 package br.com.tcc.busitu.model;
 
+import java.io.Serializable;
+
 import android.database.Cursor;
 
-public abstract class LinhaBean {
+public class LinhaBean implements Serializable{
+	
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2173234364569646490L;
 	
 	public static final String TABLE_NAME = "linha";
 	public static final String COL_ID = "_id";
@@ -13,15 +21,14 @@ public abstract class LinhaBean {
 	public static final String CONTENT_TYPE = "vnd.android.cursor.dir/vnd.google.linha";
 	public static final String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/vnd.google.linha";
 	
+	private static Cursor resultado = null;
+	
+
 	private int _id;
 	private String nome;
 	private int numeroOnibus;
+	
 
-	public LinhaBean(final Cursor cursor) {
-		this._id = cursor.getInt(0);
-		this.nome = cursor.getString(1);
-		this.numeroOnibus = cursor.getInt(2);
-	}
 	
 	public int get_id() {
 		return _id;
@@ -40,6 +47,14 @@ public abstract class LinhaBean {
 	}
 	public void setNumeroOnibus(int numeroOnibus) {
 		this.numeroOnibus = numeroOnibus;
+	}
+
+	public Cursor getResultado() {
+		return resultado;
+	}
+
+	public void setResultado(Cursor resultado) {
+		LinhaBean.resultado = resultado;
 	}
 	
 

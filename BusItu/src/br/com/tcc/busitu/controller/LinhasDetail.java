@@ -10,6 +10,7 @@ import br.com.tcc.busitu.model.LinhaBean;
 import br.com.tcc.busitu.model.PercursoBean;
 import android.app.Activity;
 import android.app.ActionBar;
+import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -62,8 +63,8 @@ public class LinhasDetail extends FragmentActivity {
 	public static class PlaceholderFragment extends ListFragment {
 
 		//public static final String[] PROJECTION = { "_id", "nome", "rota", "regiao_atendida", "tempo", "id_linha"};
-		public static final String[] PROJECTION = { LinhaBean.COL_NOME, PercursoBean.COL_REGIAO_ATENDIDA, 
-			PercursoBean.COL_ROTA, PercursoBean.COL_REGIAO_ATENDIDA };
+		public static final String[] PROJECTION = {PercursoBean.COL_NOME, PercursoBean.COL_REGIAO_ATENDIDA, PercursoBean.COL_ROTA,
+			PercursoBean.COL_TEMPO_PERCURSO };
 		
 		public PlaceholderFragment() {
 		}
@@ -71,36 +72,43 @@ public class LinhasDetail extends FragmentActivity {
 		@Override
 		public void onCreate(Bundle savedInstanceState) {
 			super.onCreate(savedInstanceState);
-			final Uri uri = getActivity().getIntent().getData();
+			
+			Intent i = getActivity().getIntent();
+			Bundle b = i.getExtras();
+			
+			PercursoBean percursoBean = (PercursoBean) b.getSerializable("PercursoBean");
+			
+			Cursor mCursor = percursoBean.getResultado();
+			
 			setListAdapter(new SimpleCursorAdapter(getActivity(),
-					R.layout.percurso_listitem, null,
+					R.layout.percurso_listitem, mCursor,
 					PROJECTION, new int[] {
 							R.id.cardNome, R.id.cardRegiaoAtendida,
 							R.id.cardRota, R.id.tempo }, 0));
 
-			// Load the content
-			getLoaderManager().initLoader(0, null,
-					new LoaderCallbacks<Cursor>() {
-						@Override
-						public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-							return new CursorLoader(getActivity(), uri,
-									PROJECTION, null,
-									null, null);
-						}
-
-						@Override
-						public void onLoadFinished(Loader<Cursor> loader,
-								Cursor c) {
-							((SimpleCursorAdapter) getListAdapter())
-									.swapCursor(c);
-						}
-
-						@Override
-						public void onLoaderReset(Loader<Cursor> arg0) {
-							((SimpleCursorAdapter) getListAdapter())
-									.swapCursor(null);
-						}
-					});
+//			// Load the content
+//			getLoaderManager().initLoader(0, null,
+//					new LoaderCallbacks<Cursor>() {
+//						@Override
+//						public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+//							return new CursorLoader(getActivity(), uri,
+//									PROJECTION, null,
+//									null, null);
+//						}
+//
+//						@Override
+//						public void onLoadFinished(Loader<Cursor> loader,
+//								Cursor c) {
+//							((SimpleCursorAdapter) getListAdapter())
+//									.swapCursor(c);
+//						}
+//
+//						@Override
+//						public void onLoaderReset(Loader<Cursor> arg0) {
+//							((SimpleCursorAdapter) getListAdapter())
+//									.swapCursor(null);
+//						}
+//					});
 		}
 
 		@Override

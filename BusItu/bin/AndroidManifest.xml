@@ -51,7 +51,7 @@
         </provider>
 
         <activity
-            android:name="br.com.tcc.busitu.controller.LinhasDetail"
+            android:name=".controller.LinhasDetail"
             android:label="@string/title_activity_linhas_detail" >
             <intent-filter android:label="@string/detail_linha" >
                 <action android:name="android.intent.action.VIEW" />
@@ -63,14 +63,20 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
-
         <activity android:name=".controller.MapActivity" >
         </activity>
-        
+
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyC7CMzGOmYpyWTf7qBhHP0jWv8KVNJz1Ps" />
+
+        <activity
+            android:name="br.com.tcc.busitu.controller.LinhasResultFragment"
+            android:label="@string/title_activity_linhas_result_fragment" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="br.com.tcc.busitu.controller.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
