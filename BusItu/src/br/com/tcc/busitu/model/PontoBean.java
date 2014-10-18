@@ -1,29 +1,27 @@
 package br.com.tcc.busitu.model;
 
+
+import java.io.Serializable;
+
 import android.database.Cursor;
 
-public class PontoBean {
-	
+public class PontoBean implements Serializable{
+
+	private static final long serialVersionUID = -3987155123408382212L;
 	public static final String TABLE_NAME = "ponto";
 	public static final String COL_ID = "_id";
 	public static final String COL_ENDERECO = "endereco";
 	public static final String COL_LAT = "lat";
 	public static final String COL_LONG = "long";
 	
-	public static final String CONTENT_TYPE = "vnd.android.cursor.dir/vnd.google.ponto";
-	public static final String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/vnd.google.ponto";
-	
 	private int _id;
 	private String endereco;
 	private long lat;
 	private long longi;
 	
-	public PontoBean(final Cursor cursor) {
-		this._id = cursor.getInt(0);
-		this.endereco = cursor.getString(1);
-		this.lat = cursor.getLong(2);
-		this.longi = cursor.getLong(3);
-	}
+	private Cursor cursor;
+	
+	
 	public int get_id() {
 		return _id;
 	}

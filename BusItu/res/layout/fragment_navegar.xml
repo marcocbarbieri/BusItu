@@ -44,6 +44,7 @@
                 android:orientation="horizontal" >
 
                 <RadioButton
+                    android:checked="true"
                     android:id="@+id/checkBoxPesquisarRua"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -109,27 +110,28 @@
             android:padding="4dp" >
 
             <RadioGroup
-                android:id="@+id/checkBoxNavegar"
+                android:id="@+id/checkBoxNavegarPartida"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal" >
 
                 <RadioButton
-                    android:id="@+id/checkBoxNavegarRua"
+                    android:checked="true"
+                    android:id="@+id/checkBoxNavegarPartidaRua"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Rua" />
 
                 <RadioButton
-                    android:id="@+id/checkBoxNavegarBairro"
+                    android:id="@+id/checkBoxNavegarPartidaBairro"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Bairro" />
 
                 <RadioButton
-                    android:id="@+id/checkBoxNavegarLinha"
+                    android:id="@+id/checkBoxNavegarPartidaLinha"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -145,11 +147,13 @@
                 android:inputType="textPostalAddress" />
 
             <RadioGroup
+                android:id="@+id/checkBoxNavegarDestino"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal" >
 
                 <RadioButton
+                    android:checked="true"
                     android:id="@+id/checkBoxRuaDestino"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"

@@ -10,6 +10,9 @@ public class LinhaDAO {
 	private SQLiteDatabase db;
 	private Cursor resultado;
 	
+	private String colunaPartida;
+	private String colunaDestino;
+	
 	//TODO: fazer com que os metodos retornem LinhaBean
 	
 	private String BUSCA_POR_ROTA = 
@@ -46,6 +49,9 @@ public class LinhaDAO {
 			+ "	FROM 	lines "
 			+ "	WHERE lines MATCH ?) a "
 			+ "INNER JOIN percurso ON a.rowid = percurso.id_linha";
+	
+	
+
 			
 	
 //			
@@ -77,7 +83,7 @@ public class LinhaDAO {
 
 	public boolean buscaLinhaPorBairro(String nome) {
 
-		String[] selectionArgs = new String[] { "% " + nome + " %" };
+		String[] selectionArgs = new String[] { "%" + nome + "%" };
 		Cursor mResultado = db.rawQuery(BUSCA_POR_ROTA, selectionArgs);
 
 		if (mResultado.moveToFirst()) {
@@ -89,10 +95,10 @@ public class LinhaDAO {
 		}
 
 	}
-
+	
 	public boolean buscaLinhaPorRua(String nome) {
 
-		String[] selectionArgs = new String[] { "% " + nome + " %" };
+		String[] selectionArgs = new String[] { "%" + nome + "%" };
 
 		Cursor mResultado = db.rawQuery(BUSCA_POR_RUA, selectionArgs);
 
@@ -120,6 +126,32 @@ public class LinhaDAO {
 			return false;
 		}
 
+	}
+	
+	public boolean buscarRota(String partida, String destino, String colunaPartida, String colunaDestino){
+		
+		String BUSCA_ROTA = 
+				"SELECT 	linha._id _id, "
+						+ "	linha.numero_onibus linha_numero, "
+						+ "	linha.nome linha_nome, "
+						+ "	percurso.nome percurso_nome "
+						+ "FROM 	linha "
+						+ "INNER JOIN percurso ON linha._id = percurso.id_linha "
+						+ "AND (percurso." + colunaPartida + " LIKE ? "
+						+ "AND percurso." + colunaDestino + " LIKE ? ) COLLATE NOCASE";
+		
+		String[] selectionArgs = new String[] {"%" + partida + "%", "%" + destino + "%"};
+		
+		Cursor mResultado = db.rawQuery(BUSCA_ROTA, selectionArgs);
+		Log.d("query", BUSCA_ROTA);
+
+		if (mResultado.moveToFirst()) {
+			setResultado(mResultado);
+			return true;
+		} else {
+			setResultado(null);
+			return false;
+		}
 	}
 
 	public Cursor getResultado() {

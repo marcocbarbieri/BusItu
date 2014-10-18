@@ -8,6 +8,7 @@ import com.google.android.gms.location.LocationClient;
 import br.com.tcc.busitu.R;
 import br.com.tcc.busitu.R.layout;
 import br.com.tcc.busitu.model.BusituDatabaseHelper;
+import br.com.tcc.busitu.util.GPSTracker;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.Activity;
@@ -45,13 +46,14 @@ public class MainActivity extends FragmentActivity implements
 	private TabsPagerAdapter mAdapter;
 	private ActionBar actionBar;
 	private LocationManager locationManager;
+	GPSTracker gps;
 
 	// 
 	private LocationClient mLocationClient;
-	private Location mCurrentLocation;
+	
 
 	// Título das tabs
-	private String[] tabs = { "Navegar", "Linhas", "Favoritos" };
+	private String[] tabs = { "Navegar", "Linhas", "Paradas" };
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -70,34 +72,70 @@ public class MainActivity extends FragmentActivity implements
 
 			// Toast.makeText(this, "definindo a localização",
 			// Toast.LENGTH_LONG).show();
-			if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
-					|| locationManager
-							.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
-
-				mCurrentLocation = mLocationClient.getLastLocation();
-
-				Toast.makeText(
-						this,
-						"lat: " + mCurrentLocation.getLatitude() + " long: "
-								+ mCurrentLocation.getLongitude(),
-						Toast.LENGTH_LONG).show();
-				Log.i("AndroidRuntime",
-						"latitude: " + mCurrentLocation.getLatitude()
-								+ " Longitude: "
-								+ mCurrentLocation.getLongitude());
-				// Location localLocation =
-				// locationManager.getLastKnownLocation(locationProvider);
-				// Log.i("AndroidRuntime", "latitude: " +
-				// localLocation.getLatitude() + " Longitude: " +
-				// localLocation.getLongitude());
-				
-				Intent it = new Intent(this, MapActivity.class);
-				it.putExtra("currentLocation", mCurrentLocation);
-				startActivity(it);
-
-				return true;
-
-			}
+//			if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
+//					|| locationManager
+//							.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
+//
+//				mCurrentLocation = mLocationClient.getLastLocation();
+//
+//				Toast.makeText(
+//						this,
+//						"lat: " + mCurrentLocation.getLatitude() + " long: "
+//								+ mCurrentLocation.getLongitude(),
+//						Toast.LENGTH_LONG).show();
+//				Log.i("AndroidRuntime",
+//						"latitude: " + mCurrentLocation.getLatitude()
+//								+ " Longitude: "
+//								+ mCurrentLocation.getLongitude());
+//				// Location localLocation =
+//				// locationManager.getLastKnownLocation(locationProvider);
+//				// Log.i("AndroidRuntime", "latitude: " +
+//				// localLocation.getLatitude() + " Longitude: " +
+//				// localLocation.getLongitude());
+//				
+//				Intent it = new Intent(this, MapActivity.class);
+//				it.putExtra("currentLocation", mCurrentLocation);
+//				startActivity(it);
+//
+//				return true;
+//
+//			}
+			
+// ############			
+			gps = new GPSTracker(MainActivity.this);
+//			 
+//            // check if GPS enabled     
+//            if(gps.canGetLocation()){
+//                 
+//                double latitude = gps.getLatitude();
+//                double longitude = gps.getLongitude();
+//                Location mCurrentLocation = new Location(gps.getLocation());
+//                 
+//                // \n is for new line
+//                Log.d("gps",latitude + " " + longitude );
+//                Toast.makeText(getApplicationContext(), "Your Location is - \nLat: " + latitude + "\nLong: " + longitude, Toast.LENGTH_LONG).show();
+//				Intent it = new Intent(this, MapActivity.class);
+//				it.putExtra("currentLocation", mCurrentLocation);
+//				startActivity(it);
+//            }
+//            else {
+//                // can't get location
+//                // GPS or Network is not enabled
+//                // Ask user to enable GPS/network in settings
+//                gps.showSettingsAlert();
+//            }
+			
+// ########################
+			
+			
+	        Location destino = new Location(LocationManager.PASSIVE_PROVIDER);
+	        destino.setLatitude(-23.283348);
+	        destino.setLongitude(-47.300993);
+	        
+	        Location partida = gps.getLocation();
+	        Toast.makeText(getApplicationContext(), "Distancia em m:" + partida.distanceTo(destino), Toast.LENGTH_LONG).show();
+	        Log.d("busitu.gps", ": " + partida.distanceTo(destino));
+			
 			return true;
 
 		case R.id.action_preferences:

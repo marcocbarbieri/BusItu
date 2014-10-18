@@ -9,7 +9,6 @@ import android.database.sqlite.SQLiteDatabase;
 
 public class PercursoDAO{
 
-	private static final long serialVersionUID = -7211178771326986629L;
 	
 	private SQLiteDatabase db;
 	private Cursor resultado;

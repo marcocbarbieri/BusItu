@@ -22,7 +22,7 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
 		case 1:
 			return new LinhasActivity();
 		case 2:
-			return new FavActivity();
+			return new PontoFragment();
 		}
 		return null;
 	}

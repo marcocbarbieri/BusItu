@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,15 +21,20 @@ import android.widget.Toast;
 import br.com.tcc.busitu.R;
 import br.com.tcc.busitu.model.LinhaBean;
 import br.com.tcc.busitu.model.LinhaDAO;
+import br.com.tcc.busitu.util.Util;
 
 public class NavegarActivity extends Fragment {
 
 	TextView tvNavegar;
 	TextView tvPesquisar;
 	EditText etPesquisar;
+	EditText etNavegarInicio;
+	EditText etNavegarFim;
 	Button btnPesquisar;
+	Button btnNavegar;
 	RadioGroup cbPesquisar;
-	RadioGroup cbNavegar;
+	RadioGroup cbNavegarPartida;
+	RadioGroup cbNavegarDestino;
 
 	LinearLayout llNavegar;
 	LinearLayout llPesquisar;
@@ -44,10 +50,14 @@ public class NavegarActivity extends Fragment {
 		llNavegar = (LinearLayout) rootView.findViewById(R.id.llRota);
 		llPesquisar = (LinearLayout) rootView.findViewById(R.id.llPesquisar);
 		etPesquisar = (EditText) rootView.findViewById(R.id.textPesquisar);
+		etNavegarInicio = (EditText) rootView.findViewById(R.id.textInicio);
+		etNavegarFim = (EditText) rootView.findViewById(R.id.textFim);
 		btnPesquisar = (Button) rootView.findViewById(R.id.btnPesquisar);
-		cbPesquisar = (RadioGroup) rootView
-				.findViewById(R.id.checkBoxPesquisar);
-		cbNavegar = (RadioGroup) rootView.findViewById(R.id.checkBoxNavegar);
+		btnNavegar = (Button) rootView.findViewById(R.id.btnNavegar);
+		cbPesquisar = (RadioGroup) rootView.findViewById(R.id.checkBoxPesquisar);
+		cbNavegarPartida = (RadioGroup) rootView.findViewById(R.id.checkBoxNavegarPartida);
+		cbNavegarDestino = (RadioGroup) rootView.findViewById(R.id.checkBoxNavegarDestino);
+		
 
 		llNavegar.setVisibility(View.GONE);
 		llPesquisar.setVisibility(View.GONE);
@@ -117,15 +127,76 @@ public class NavegarActivity extends Fragment {
 			}
 		});
 
+		btnNavegar.setOnClickListener(new View.OnClickListener() {
+			
+			
+			
+			
+			@Override
+			public void onClick(View v) {
+				
+				String partida = etNavegarInicio.getText().toString();
+				String destino = etNavegarFim.getText().toString();
+				String colunaPartida = "rota";
+				String colunaDestino = "rota";
+				
+				LinhaDAO linhaDAO = new LinhaDAO(getActivity().getApplicationContext());
+				LinhaBean linhaBean = new LinhaBean();
+				
+				
+				Intent i = new Intent();
+				Bundle b = new Bundle();
+
+				switch (cbNavegarPartida.getCheckedRadioButtonId()) {
+				
+				case R.id.checkBoxNavegarPartidaBairro:
+					colunaPartida = "regiao_atendida";
+					
+					break;
+				case R.id.checkBoxNavegarPartidaRua:
+					colunaPartida = "rota";
+					break;
+				
+				}
+				
+				switch (cbNavegarDestino.getCheckedRadioButtonId()){
+				
+				case R.id.checkBoxBairroDestino:
+					colunaDestino = "regiao_atendida";
+					break;
+				case R.id.checkBoxRuaDestino:
+					colunaDestino = "rota";
+					break;
+				
+				}
+				
+				if (linhaDAO.buscarRota(partida, destino, colunaPartida, colunaDestino)
+						&& !TextUtils.isEmpty(partida) && !TextUtils.isEmpty(destino)) {
+					linhaBean.setResultado(linhaDAO.getResultado());
+					b.putSerializable("LinhaBean", linhaBean);
+					i.putExtras(b);
+					i.setClass(getActivity().getApplicationContext(),
+							LinhasResultFragment.class);
+					startActivity(i);
+				} else {
+					Toast.makeText(getActivity().getApplicationContext(),
+							"Não foram encontradas linhas que atendam estes endereços.",
+							Toast.LENGTH_SHORT).show();
+				}
+				
+				
+			}
+		});
+		
 		tvNavegar.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 
 				if (llNavegar.getVisibility() == View.VISIBLE) {
-					collapse(llNavegar);
+					Util.collapse(llNavegar);
 				} else {
-					expand(llNavegar);
+					Util.expand(llNavegar);
 				}
 
 			}
@@ -137,9 +208,9 @@ public class NavegarActivity extends Fragment {
 			public void onClick(View v) {
 
 				if (llPesquisar.getVisibility() == View.VISIBLE) {
-					collapse(llPesquisar);
+					Util.collapse(llPesquisar);
 				} else {
-					expand(llPesquisar);
+					Util.expand(llPesquisar);
 				}
 			}
 		});
@@ -148,59 +219,5 @@ public class NavegarActivity extends Fragment {
 
 	}
 
-	public static void expand(final View v) {
-		v.measure(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-		final int targtetHeight = v.getMeasuredHeight();
-
-		v.getLayoutParams().height = 0;
-		v.setVisibility(View.VISIBLE);
-		Animation a = new Animation() {
-			@Override
-			protected void applyTransformation(float interpolatedTime,
-					Transformation t) {
-				v.getLayoutParams().height = interpolatedTime == 1 ? LayoutParams.WRAP_CONTENT
-						: (int) (targtetHeight * interpolatedTime);
-				v.requestLayout();
-			}
-
-			@Override
-			public boolean willChangeBounds() {
-				return true;
-			}
-		};
-
-		// 1dp/ms
-		a.setDuration((int) (targtetHeight / v.getContext().getResources()
-				.getDisplayMetrics().density));
-		v.startAnimation(a);
-	}
-
-	public static void collapse(final View v) {
-		final int initialHeight = v.getMeasuredHeight();
-
-		Animation a = new Animation() {
-			@Override
-			protected void applyTransformation(float interpolatedTime,
-					Transformation t) {
-				if (interpolatedTime == 1) {
-					v.setVisibility(View.GONE);
-				} else {
-					v.getLayoutParams().height = initialHeight
-							- (int) (initialHeight * interpolatedTime);
-					v.requestLayout();
-				}
-			}
-
-			@Override
-			public boolean willChangeBounds() {
-				return true;
-			}
-		};
-
-		// 1dp/ms
-		a.setDuration((int) (initialHeight / v.getContext().getResources()
-				.getDisplayMetrics().density));
-		v.startAnimation(a);
-	}
 
 }
