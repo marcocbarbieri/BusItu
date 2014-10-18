@@ -15,6 +15,19 @@ public class LinhaDAO {
 	
 	//TODO: fazer com que os metodos retornem LinhaBean
 	
+	private String BUSCA_POR_PONTO = ""
+			+ "SELECT "
+			+ "  linha.numero_onibus, "
+			+ "  linha.nome "
+			+ "FROM "
+			+ "  linha, "
+			+ "  ponto, "
+			+ "  ponto_ligacao "
+			+ "WHERE "
+			+ "  linha._id = ponto_ligacao.id_linha AND "
+			+ "  ponto._id = ponto_ligacao.id_ponto AND "
+			+ "  ponto._id = ?";
+	
 	private String BUSCA_POR_ROTA = 
 			"SELECT " + "linha._id, linha.numero_onibus linha_numero"
 			+ ", linha.nome linha_nome, percurso.nome percurso_nome "
@@ -126,6 +139,18 @@ public class LinhaDAO {
 			return false;
 		}
 
+	}
+	
+	public LinhaBean buscarLinhaPorPonto(long ponto){
+		String[] selectionArgs = new String[] {String.valueOf(ponto)};
+		
+		Cursor mResultado = db.rawQuery(BUSCA_POR_PONTO, selectionArgs);
+		
+		if(mResultado.moveToFirst()){
+			return new LinhaBean(mResultado);
+		} else {
+			return null;
+		}
 	}
 	
 	public boolean buscarRota(String partida, String destino, String colunaPartida, String colunaDestino){

@@ -28,6 +28,15 @@ public class LinhaBean implements Serializable{
 	private String nome;
 	private int numeroOnibus;
 	
+	
+	public LinhaBean(){
+		
+	}
+	
+	public LinhaBean(Cursor cursor){
+		this.resultado = cursor;
+	}
+	
 
 	
 	public int get_id() {

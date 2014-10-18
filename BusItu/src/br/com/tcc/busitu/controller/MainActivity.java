@@ -103,38 +103,38 @@ public class MainActivity extends FragmentActivity implements
 			
 // ############			
 			gps = new GPSTracker(MainActivity.this);
-//			 
-//            // check if GPS enabled     
-//            if(gps.canGetLocation()){
-//                 
-//                double latitude = gps.getLatitude();
-//                double longitude = gps.getLongitude();
-//                Location mCurrentLocation = new Location(gps.getLocation());
-//                 
-//                // \n is for new line
-//                Log.d("gps",latitude + " " + longitude );
-//                Toast.makeText(getApplicationContext(), "Your Location is - \nLat: " + latitude + "\nLong: " + longitude, Toast.LENGTH_LONG).show();
-//				Intent it = new Intent(this, MapActivity.class);
-//				it.putExtra("currentLocation", mCurrentLocation);
-//				startActivity(it);
-//            }
-//            else {
-//                // can't get location
-//                // GPS or Network is not enabled
-//                // Ask user to enable GPS/network in settings
-//                gps.showSettingsAlert();
-//            }
+			 
+            // check if GPS enabled     
+            if(gps.canGetLocation()){
+                 
+                double latitude = gps.getLatitude();
+                double longitude = gps.getLongitude();
+                Location mCurrentLocation = new Location(gps.getLocation());
+                 
+                // \n is for new line
+                Log.d("gps",latitude + " " + longitude );
+                Toast.makeText(getApplicationContext(), "Your Location is - \nLat: " + latitude + "\nLong: " + longitude, Toast.LENGTH_LONG).show();
+				Intent it = new Intent(this, MapActivity.class);
+				it.putExtra("currentLocation", mCurrentLocation);
+				startActivity(it);
+            }
+            else {
+                // can't get location
+                // GPS or Network is not enabled
+                // Ask user to enable GPS/network in settings
+                gps.showSettingsAlert();
+            }
 			
 // ########################
 			
 			
-	        Location destino = new Location(LocationManager.PASSIVE_PROVIDER);
-	        destino.setLatitude(-23.283348);
-	        destino.setLongitude(-47.300993);
-	        
-	        Location partida = gps.getLocation();
-	        Toast.makeText(getApplicationContext(), "Distancia em m:" + partida.distanceTo(destino), Toast.LENGTH_LONG).show();
-	        Log.d("busitu.gps", ": " + partida.distanceTo(destino));
+//	        Location destino = new Location(LocationManager.PASSIVE_PROVIDER);
+//	        destino.setLatitude(-23.283348);
+//	        destino.setLongitude(-47.300993);
+//	        
+//	        Location partida = gps.getLocation();
+//	        Toast.makeText(getApplicationContext(), "Distancia em m:" + partida.distanceTo(destino), Toast.LENGTH_LONG).show();
+//	        Log.d("busitu.gps", ": " + partida.distanceTo(destino));
 			
 			return true;
 

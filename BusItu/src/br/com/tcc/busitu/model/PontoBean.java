@@ -21,6 +21,12 @@ public class PontoBean implements Serializable{
 	
 	private Cursor cursor;
 	
+	public PontoBean(Cursor cursor){
+		this.cursor = cursor;
+	}
+	
+	public PontoBean(){};
+	
 	
 	public int get_id() {
 		return _id;
@@ -45,6 +51,12 @@ public class PontoBean implements Serializable{
 	}
 	public void setLongi(long longi) {
 		this.longi = longi;
+	}
+	public Cursor getCursor() {
+		return cursor;
+	}
+	public void setCursor(Cursor cursor) {
+		this.cursor = cursor;
 	}
 	
 	
