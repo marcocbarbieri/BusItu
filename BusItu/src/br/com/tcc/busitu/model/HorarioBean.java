@@ -20,13 +20,11 @@ public class HorarioBean {
 	private String horarioFinal;
 	private int categoria;
 	private int id_linha;
+	
+	private Cursor mCursor;
 
-	public HorarioBean(final Cursor cursor) {
-		this._id = cursor.getInt(0);
-		this.horarioInicial = cursor.getString(1);
-		this.horarioFinal = cursor.getString(2);
-		this.categoria = cursor.getInt(3);
-		this.id_linha = cursor.getInt(4);
+	public HorarioBean(Cursor cursor) {
+		this.setmCursor(cursor);
 	}
 	
 	public int get_id() {
@@ -58,6 +56,14 @@ public class HorarioBean {
 	}
 	public void setLinha(int linha) {
 		this.id_linha = linha;
+	}
+
+	public Cursor getmCursor() {
+		return mCursor;
+	}
+
+	public void setmCursor(Cursor mCursor) {
+		this.mCursor = mCursor;
 	}
 	
 	

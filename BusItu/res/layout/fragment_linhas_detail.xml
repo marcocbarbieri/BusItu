@@ -1,23 +1,149 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/rounded_corners_white"
-    android:descendantFocusability="blocksDescendants"
-    tools:context="br.com.tcc.busitu.LinhasDetail$PlaceholderFragment" >
+    android:layout_height="wrap_content"
+    android:background="@color/gray" >
 
-    <ListView
-        android:id="@id/android:list"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#e5e5e5"
-        android:divider="@android:color/transparent"
-        android:dividerHeight="4dp"
-        android:drawSelectorOnTop="true"
-        android:paddingLeft="4dp"
-        android:paddingRight="4dp"
-        android:focusable="false"
-        android:focusableInTouchMode="false"
-        android:listSelector="@android:color/transparent" />
+        android:layout_height="wrap_content"
+        android:background="@color/gray"
+        android:orientation="vertical" >
 
-</RelativeLayout>
+        <!-- inicio do layout principal -->
+
+        <TextView
+            android:id="@+id/txtRotaInicialNome"
+            style="@style/Header_Green" />
+
+        <LinearLayout
+            android:id="@+id/llRotaInicial"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/txtRotaInicialRegiaoAtendida"
+                style="@style/Header_Dark_Gray"
+                android:text="+ REGIÃO ATENDIDA" />
+
+            <TextView
+                android:id="@+id/txtRotaInicialRegiaoAtendidaTexto"
+                style="@style/Item" />
+
+            <TextView
+                android:id="@+id/txtRotaInicialItinerario"
+                style="@style/Header_Dark_Gray"
+                android:text="+ ITINERÁRIO" />
+
+            <TextView
+                android:id="@+id/txtRotaInicialItinerarioTexto"
+                style="@style/Item" />
+
+            <TextView
+                android:id="@+id/txtRotaInicialTempoPercurso"
+                style="@style/Header_Dark_Gray"
+                android:text="+ TEMPO DE PERCURSO" />
+
+            <TextView
+                android:id="@+id/txtRotaInicialTempoPercursoTexto"
+                style="@style/Item" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtRotaInicialFinal"
+            style="@style/Header_Green" />
+
+        <LinearLayout
+            android:id="@+id/llRotaFinal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/txtRotaFinalRegiaoAtendida"
+                style="@style/Header_Dark_Gray"
+                android:text="+ REGIÃO ATENDIDA" />
+
+            <TextView
+                android:id="@+id/txtRotaFinalRegiaoAtendidaTexto"
+                style="@style/Item" />
+
+            <TextView
+                android:id="@+id/txtRotaFinalItinerario"
+                style="@style/Header_Dark_Gray"
+                android:text="+ ITINERÁRIO" />
+
+            <TextView
+                android:id="@+id/txtRotaFinalItinerarioTexto"
+                style="@style/Item" />
+
+            <TextView
+                android:id="@+id/txtRotaFinalTempoPercurso"
+                style="@style/Header_Dark_Gray"
+                android:text="+ TEMPO DE PERCURSO" />
+
+            <TextView
+                android:id="@+id/txtRotaFinalTempoPercursoTexto"
+                style="@style/Item" />
+        </LinearLayout>
+
+        <!-- TXT HORARIOS -->
+
+        <TextView
+            android:id="@+id/txtHorarios"
+            style="@style/Header_Green"
+            android:text="+ Horários" />
+
+        <LinearLayout
+            android:id="@+id/llHorarios"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal" >
+
+                <TextView
+                    style="@style/Item_Horario_left"
+                    android:text="Dias úteis:" />
+
+                <TextView
+                    android:id="@+id/txtHorarioDiasUteis"
+                    style="@style/Item_Horario_Right" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal" >
+
+                <TextView
+                    style="@style/Item_Horario_left"
+                    android:text="Sábados:" />
+
+                <TextView
+                    android:id="@+id/txtHorarioSabados"
+                    style="@style/Item_Horario_Right" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal" >
+
+                <TextView
+                    style="@style/Item_Horario_left"
+                    android:text="Domingos e Feriados:" />
+
+                <TextView
+                    android:id="@+id/txtHorarioDomingosFeriados"
+                    style="@style/Item_Horario_Right" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

@@ -42,8 +42,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
         <activity
             android:name=".controller.LinhasDetail"
             android:label="@string/title_activity_linhas_detail" >
@@ -62,11 +60,15 @@
             android:value="AIzaSyC7CMzGOmYpyWTf7qBhHP0jWv8KVNJz1Ps" />
 
         <activity
-            android:name="br.com.tcc.busitu.controller.LinhasResultFragment"
+            android:name=".controller.LinhasResultFragment"
             android:label="@string/title_activity_linhas_result_fragment" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="br.com.tcc.busitu.controller.MainActivity" />
+        </activity>
+        <activity
+            android:name="br.com.tcc.busitu.controller.PontoDetail"
+            android:label="@string/title_activity_ponto_detail" >
         </activity>
     </application>
 

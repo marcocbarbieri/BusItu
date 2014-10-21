@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="busitutheme_color">#005e5e</color>
+    <color name="dark_green">#005e5e</color>
+    <color name="gray">#cccccc</color>
 </resources>

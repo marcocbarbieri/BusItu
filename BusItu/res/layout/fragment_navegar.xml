@@ -13,27 +13,18 @@
 
         <TextView
             android:id="@+id/labelPesquisar"
-            android:layout_width="match_parent"
-            android:layout_height="46dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="12dp"
-            android:background="@android:color/white"
-            android:clickable="true"
-            android:gravity="center"
-            android:paddingBottom="0dp"
+            style="@style/Header_Green"
             android:text="PESQUISAR"
-            android:textSize="26sp"
-            android:typeface="monospace" />
+            android:gravity="center" />
 
         <LinearLayout
             android:id="@+id/llPesquisar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:background="@drawable/rounded_corners_white"
+            android:layout_marginLeft="12dp"
+            android:background="@android:color/white"
+            android:layout_marginRight="12dp"
             android:orientation="vertical"
             android:padding="4dp" >
 
@@ -44,11 +35,11 @@
                 android:orientation="horizontal" >
 
                 <RadioButton
-                    android:checked="true"
                     android:id="@+id/checkBoxPesquisarRua"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:checked="true"
                     android:text="Rua" />
 
                 <RadioButton
@@ -86,26 +77,19 @@
 
         <TextView
             android:id="@+id/labelNavegar"
-            android:layout_width="match_parent"
-            android:layout_height="46dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="12dp"
-            android:background="@android:color/white"
-            android:clickable="true"
+            style="@style/Header_Green"
             android:gravity="center"
             android:text="CRIAR ROTA"
-            android:textSize="26sp"
-            android:typeface="monospace" />
+             />
 
         <LinearLayout
             android:id="@+id/llRota"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:background="@drawable/rounded_corners_white"
+            android:layout_marginLeft="12dp"
+            android:background="@android:color/white"
+            android:layout_marginRight="12dp"
             android:orientation="vertical"
             android:padding="4dp" >
 
@@ -116,11 +100,11 @@
                 android:orientation="horizontal" >
 
                 <RadioButton
-                    android:checked="true"
                     android:id="@+id/checkBoxNavegarPartidaRua"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:checked="true"
                     android:text="Rua" />
 
                 <RadioButton
@@ -153,11 +137,11 @@
                 android:orientation="horizontal" >
 
                 <RadioButton
-                    android:checked="true"
                     android:id="@+id/checkBoxRuaDestino"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:checked="true"
                     android:text="Rua" />
 
                 <RadioButton

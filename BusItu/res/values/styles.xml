@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!--
         Base application theme, dependent on API level. This theme is replaced
@@ -15,6 +15,76 @@
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+
+    <style name="Divider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">2dp</item>
+        <item name="android:layout_marginLeft">12dp</item>
+        <item name="android:layout_marginRight">12dp</item>
+        <item name="android:background">?android:attr/listDivider</item>
+    </style>
+
+    <style name="Header_Green">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginTop">16sp</item>
+        <item name="android:layout_marginLeft">12dp</item>
+        <item name="android:layout_marginRight">12dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:background">@drawable/rounded_corners_green</item>
+        <item name="android:gravity">left|center</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">26sp</item>
+    </style>
+
+    <style name="Header_Dark_Gray">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">46dp</item>
+        <item name="android:layout_marginLeft">12dp</item>
+        <item name="android:layout_marginRight">12dp</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:background">@drawable/rounded_corners_gray</item>
+        <item name="android:clickable">true</item>
+        <item name="android:gravity">left|center</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="Item">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:visibility">gone</item>
+        <item name="android:layout_marginLeft">12dp</item>
+        <item name="android:layout_marginRight">12dp</item>
+        <item name="android:layout_marginBottom">12dp</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:background">#b6b6b6</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:textColor">#4d4d4d</item>
+    </style>
+
+    <style name="Item_Horario_left">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">46dp</item>
+        <item name="android:layout_marginLeft">12dp</item>
+        <item name="android:gravity">left|center</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:background">@drawable/rounded_corners_left</item>
+    </style>
+
+    <style name="Item_Horario_Right">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">46dp</item>
+        <item name="android:layout_marginRight">12dp</item>
+        <item name="android:gravity">right|center</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:background">@drawable/rounded_cornes_right</item>
     </style>
 
 </resources>

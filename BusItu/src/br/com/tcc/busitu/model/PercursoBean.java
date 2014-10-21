@@ -30,7 +30,7 @@ public class PercursoBean implements Serializable{
 	private String rota;
 	private String regiaoAtendida;
 	private String tempoPercurso;
-	private int id_linha;
+	private long id_linha;
 		
 	public PercursoBean() {
 	}
@@ -65,10 +65,10 @@ public class PercursoBean implements Serializable{
 	public void setTempoPercurso(String tempoPercurso) {
 		this.tempoPercurso = tempoPercurso;
 	}
-	public int getLinha() {
+	public long getLinha() {
 		return id_linha;
 	}
-	public void setLinha(int linha) {
+	public void setLinha(long linha) {
 		this.id_linha = linha;
 	}
 

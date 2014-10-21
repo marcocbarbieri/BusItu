@@ -8,5 +8,6 @@
     <string name="detail_linha">Linha</string>
     <string name="title_activity_linha_result_fragment">LinhaResultFragment</string>
     <string name="title_activity_linhas_result_fragment">LinhasResultFragment</string>
+    <string name="title_activity_ponto_detail">PontoDetail</string>
 
 </resources>

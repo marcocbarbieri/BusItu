@@ -62,12 +62,12 @@ public class GPSTracker extends Service implements LocationListener{
     			double mLat = mLocations.getDouble(mLocations.getColumnIndex((PontoBean.COL_LAT)));
     			double mLong = mLocations.getDouble(mLocations.getColumnIndex((PontoBean.COL_LONG)));
     			
-    			Location pontoLocation = new Location(LocationManager.PASSIVE_PROVIDER);
+    			Location pontoLocation = new Location("");
     			
     			pontoLocation.setLongitude(mLong);
     			pontoLocation.setLatitude(mLat);
     			
-    			if((int) pontoLocation.distanceTo(actualLocation) <= 500){
+    			if((int) pontoLocation.distanceTo(actualLocation) <= 1000){
     				
     				pontoLocationList.add(pontoLocation);
     				

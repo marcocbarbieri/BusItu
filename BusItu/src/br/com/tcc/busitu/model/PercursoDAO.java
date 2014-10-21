@@ -18,7 +18,7 @@ public class PercursoDAO{
 	}
 	
 	
-	public PercursoBean buscarPercursoPorID(Long id){
+	public PercursoBean buscarPercursoPorID(long id){
 		PercursoBean percursoBean = new PercursoBean();
 		Cursor mCursor = db.query(
 				PercursoBean.TABLE_NAME, PercursoBean.COLUMNS,
@@ -28,6 +28,7 @@ public class PercursoDAO{
 		
 		if(mCursor.moveToFirst()){
 			percursoBean.setResultado(mCursor);
+			percursoBean.setLinha(id);
 			return percursoBean;
 		}
 		else {

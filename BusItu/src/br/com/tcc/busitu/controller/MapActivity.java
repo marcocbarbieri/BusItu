@@ -3,6 +3,7 @@ package br.com.tcc.busitu.controller;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
 import android.view.Menu;
@@ -28,34 +29,46 @@ public class MapActivity extends Activity {
 	  protected void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.fragment_map);
-	    Location mCurrentLocation;
 	    
 	    Bundle extras = getIntent().getExtras();
 	    
-	    mCurrentLocation = (Location) extras.get("currentLocation");
+	    boolean isFromPontodetail = extras.getBoolean("fromPontoDetail");
+	    Location mCurrentLocation = (Location) extras.get("currentLocation");
 	    
 	    double latitude =  mCurrentLocation.getLatitude();
 	    double longitude = mCurrentLocation.getLongitude();
 	    LatLng mLocation = new LatLng(latitude, longitude);
 	    
-	    ponto = new PontoDAO(getApplicationContext());
-	    gps = new GPSTracker(getApplicationContext());
-	    
-	    ArrayList<Location> locationList = new ArrayList<Location>();
-	    
-	    locationList = gps.getLocationList(ponto.buscarPontos());
-	    
 	    map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map))
-	        .getMap();
-	    Marker markerMyLocation = map.addMarker(new MarkerOptions().position(mLocation)
-	        .title("Minha Localização"));
+		        .getMap();
+
 	    
-	    for (Location location : locationList) {
-			double lat = location.getLatitude();
-			double longi = location.getLongitude();
-			LatLng mLatLong = new LatLng(lat, longi);
-			addMarker(mLatLong);
+	    if(isFromPontodetail){
+	    	
+	    	addMarker(mLocation);
+	    	
+	    }else {
+	    	
+		    ponto = new PontoDAO(getApplicationContext());
+		    gps = new GPSTracker(getApplicationContext());
+		    
+		    ArrayList<Location> locationList = new ArrayList<Location>();
+		    
+		    locationList = gps.getLocationList(ponto.buscarPontos());
+		    
+		    Marker markerMyLocation = map.addMarker(new MarkerOptions().position(mLocation)
+		        .title("Minha Localização"));
+		    
+		    for (Location location : locationList) {
+				double lat = location.getLatitude();
+				double longi = location.getLongitude();
+				LatLng mLatLong = new LatLng(lat, longi);
+				addMarker(mLatLong);
+		    }
+	    	
 	    }
+	    
+	    
 	    
 	    
 //	    Marker kiel = map.addMarker(new MarkerOptions()

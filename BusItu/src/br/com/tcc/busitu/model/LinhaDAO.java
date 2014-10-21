@@ -17,6 +17,7 @@ public class LinhaDAO {
 	
 	private String BUSCA_POR_PONTO = ""
 			+ "SELECT "
+			+ "  linha._id _id, "
 			+ "  linha.numero_onibus, "
 			+ "  linha.nome "
 			+ "FROM "

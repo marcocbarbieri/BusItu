@@ -46,33 +46,11 @@ public class LinhasActivity extends ListFragment {
 				R.layout.linha_listitem, mCursor, new String[] {
 						LinhaBean.COL_NUMERO_ONIBUS, LinhaBean.COL_NOME }, new int[] {
 						R.id.cardNumero, R.id.cardLinha }, 0));
-
-//		// Load the content
-//		getLoaderManager().initLoader(0, null, new LoaderCallbacks<Cursor>() {
-//			@Override
-//			public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-//				return new CursorLoader(getActivity(),
-//						BusituProvider.URI_LINHA, Linha.FIELDS, null, null,
-//						null);
-//			}
-//
-//			@Override
-//			public void onLoadFinished(Loader<Cursor> loader, Cursor c) {
-//				((SimpleCursorAdapter) getListAdapter()).swapCursor(c);
-//			}
-//
-//			@Override
-//			public void onLoaderReset(Loader<Cursor> arg0) {
-//				((SimpleCursorAdapter) getListAdapter()).swapCursor(null);
-//			}
-//		});
 	}
 
 	@Override
 	public void onListItemClick(ListView l, View v, int position, long id) {
 
-		// content://br.com.tcc.busitu.provider/linha/2
-		//Uri uri = ContentUris.withAppendedId(BusituProvider.URI_LINHA_ID, id);
 		
 		Intent i = new Intent();
 		Bundle b = new Bundle();
@@ -88,9 +66,6 @@ public class LinhasActivity extends ListFragment {
 			startActivity(i);
 		}
 		
-		
-		
-//		startActivity(new Intent(Intent.ACTION_EDIT, uri));
 
 	};
 
