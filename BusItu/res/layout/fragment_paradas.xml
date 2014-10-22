@@ -1,10 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#cccccc" >
-     
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_margin="12dp"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/rounded_corners_white"
+        android:descendantFocusability="blocksDescendants"
+        android:orientation="horizontal"
+        android:paddingBottom="8dp"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp" >
+
+        <TextView
+            android:id="@+id/txtExibirPontoMapa"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="left|center"
+            android:layout_weight="6.28"
+            android:gravity="left|center"
+            android:clickable="true"
+            android:paddingLeft="4dp"
+            android:text="Exibir pontos próximos"
+            android:textColor="#ff707070"
+            android:textSize="23sp" />
+
+        <ImageView
+            android:id="@+id/imgExibirPontoMapa"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="6dp"
+            android:layout_marginTop="6dp"
+            android:clickable="true"
+            android:gravity="center"
+            android:src="@drawable/ic_geolocation_busstop" />
+    </LinearLayout>
+
     <ListView
         android:id="@id/android:list"
         android:layout_width="match_parent"
@@ -17,6 +54,5 @@
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:paddingTop="16dp" />
-     
- 
-</RelativeLayout>
+
+</LinearLayout>

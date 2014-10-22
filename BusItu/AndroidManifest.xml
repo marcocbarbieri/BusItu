@@ -26,14 +26,16 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
+        android:logo="@drawable/ic_launcher"
         android:theme="@style/busituTheme"
-        android:uiOptions="splitActionBarWhenNarrow" >
+        android:uiOptions="none" >
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
         <activity
             android:name=".controller.MainActivity"
+            android:icon="@drawable/ic_busitu_46_white"
             android:label="@string/app_name"
             android:windowSoftInputMode="stateHidden" >
             <intent-filter>
@@ -44,6 +46,7 @@
         </activity>
         <activity
             android:name=".controller.LinhasDetail"
+            android:icon="@drawable/ic_busitu_46_white"
             android:label="@string/title_activity_linhas_detail" >
             <intent-filter android:label="@string/detail_linha" >
                 <action android:name="android.intent.action.VIEW" />
@@ -52,7 +55,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".controller.MapActivity" >
+        <activity
+            android:name=".controller.MapActivity"
+            android:icon="@drawable/ic_busitu_46_white" >
         </activity>
 
         <meta-data
@@ -61,6 +66,7 @@
 
         <activity
             android:name=".controller.LinhasResultFragment"
+            android:icon="@drawable/ic_busitu_46_white"
             android:label="@string/title_activity_linhas_result_fragment" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -68,6 +74,7 @@
         </activity>
         <activity
             android:name="br.com.tcc.busitu.controller.PontoDetail"
+            android:icon="@drawable/ic_busitu_46_white"
             android:label="@string/title_activity_ponto_detail" >
         </activity>
     </application>

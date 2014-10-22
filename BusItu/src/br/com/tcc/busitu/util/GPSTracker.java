@@ -50,17 +50,19 @@ public class GPSTracker extends Service implements LocationListener{
         getLocation();
     }
     
-    public ArrayList<Location> getLocationList(Cursor mLocations){
+    public ArrayList<PontoBean> getLocationList(Cursor mLocations){
     	
     	if(mLocations.moveToFirst()){
 			
 			Location actualLocation = getLocation();
-			ArrayList<Location> pontoLocationList = new ArrayList();
+			ArrayList<PontoBean> pontoLocationList = new ArrayList<PontoBean>();
 			
     		while(mLocations.moveToNext()){
     			
     			double mLat = mLocations.getDouble(mLocations.getColumnIndex((PontoBean.COL_LAT)));
     			double mLong = mLocations.getDouble(mLocations.getColumnIndex((PontoBean.COL_LONG)));
+    			String nome = mLocations.getString(mLocations.getColumnIndex((PontoBean.COL_ENDERECO)));
+    			int id = mLocations.getInt(mLocations.getColumnIndex(PontoBean.COL_ID));
     			
     			Location pontoLocation = new Location("");
     			
@@ -69,7 +71,14 @@ public class GPSTracker extends Service implements LocationListener{
     			
     			if((int) pontoLocation.distanceTo(actualLocation) <= 1000){
     				
-    				pontoLocationList.add(pontoLocation);
+    				PontoBean pontoBean = new PontoBean();
+        			pontoBean.setLat(mLat);
+        			pontoBean.setLng(mLong);
+        			pontoBean.setPontoLocation(pontoLocation);
+        			pontoBean.setEndereco(nome);
+        			pontoBean.set_id(id);
+    				
+    				pontoLocationList.add(pontoBean);
     				
     			}
     		}

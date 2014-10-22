@@ -39,12 +39,13 @@ import android.widget.Toast;
 public class MainActivity extends FragmentActivity implements
 		ActionBar.TabListener {
 
-	private final static int CONNECTION_FAILURE_RESOLUTION_REQUEST = 9000;
 
 	private ViewPager viewPager;
 	private TabsPagerAdapter mAdapter;
 	private ActionBar actionBar;
 	GPSTracker gps;
+	
+	
 
 	// 
 	
@@ -52,13 +53,13 @@ public class MainActivity extends FragmentActivity implements
 	// Título das tabs
 	private String[] tabs = { "Navegar", "Linhas", "Paradas" };
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu items for use in the action bar
-		MenuInflater inflater = getMenuInflater();
-		inflater.inflate(R.menu.main_activity_actions, menu);
-		return super.onCreateOptionsMenu(menu);
-	}
+//	@Override
+//	public boolean onCreateOptionsMenu(Menu menu) {
+//		// Inflate the menu items for use in the action bar
+//		MenuInflater inflater = getMenuInflater();
+//		inflater.inflate(R.menu.main_activity_actions, menu);
+//		return super.onCreateOptionsMenu(menu);
+//	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
@@ -67,38 +68,6 @@ public class MainActivity extends FragmentActivity implements
 
 		case R.id.action_map:
 
-			// Toast.makeText(this, "definindo a localização",
-			// Toast.LENGTH_LONG).show();
-//			if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
-//					|| locationManager
-//							.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
-//
-//				mCurrentLocation = mLocationClient.getLastLocation();
-//
-//				Toast.makeText(
-//						this,
-//						"lat: " + mCurrentLocation.getLatitude() + " long: "
-//								+ mCurrentLocation.getLongitude(),
-//						Toast.LENGTH_LONG).show();
-//				Log.i("AndroidRuntime",
-//						"latitude: " + mCurrentLocation.getLatitude()
-//								+ " Longitude: "
-//								+ mCurrentLocation.getLongitude());
-//				// Location localLocation =
-//				// locationManager.getLastKnownLocation(locationProvider);
-//				// Log.i("AndroidRuntime", "latitude: " +
-//				// localLocation.getLatitude() + " Longitude: " +
-//				// localLocation.getLongitude());
-//				
-//				Intent it = new Intent(this, MapActivity.class);
-//				it.putExtra("currentLocation", mCurrentLocation);
-//				startActivity(it);
-//
-//				return true;
-//
-//			}
-			
-// ############			
 			gps = new GPSTracker(MainActivity.this);
 			 
             // check if GPS enabled     
@@ -123,16 +92,6 @@ public class MainActivity extends FragmentActivity implements
                 gps.showSettingsAlert();
             }
 			
-// ########################
-			
-			
-//	        Location destino = new Location(LocationManager.PASSIVE_PROVIDER);
-//	        destino.setLatitude(-23.283348);
-//	        destino.setLongitude(-47.300993);
-//	        
-//	        Location partida = gps.getLocation();
-//	        Toast.makeText(getApplicationContext(), "Distancia em m:" + partida.distanceTo(destino), Toast.LENGTH_LONG).show();
-//	        Log.d("busitu.gps", ": " + partida.distanceTo(destino));
 			
 			return true;
 

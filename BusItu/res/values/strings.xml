@@ -3,11 +3,11 @@
 
     <string name="app_name">BusItu</string>
     <string name="hello_world">Hello world!</string>
-    <string name="title_activity_linhas_detail">LinhasDetail</string>
+    <string name="title_activity_linhas_detail">Detalhes da Linha</string>
     <string name="action_settings">Settings</string>
     <string name="detail_linha">Linha</string>
-    <string name="title_activity_linha_result_fragment">LinhaResultFragment</string>
-    <string name="title_activity_linhas_result_fragment">LinhasResultFragment</string>
-    <string name="title_activity_ponto_detail">PontoDetail</string>
+    <string name="title_activity_linha_result_fragment">Resultado da pesquisa</string>
+    <string name="title_activity_linhas_result_fragment">Resultado da pesquisa</string>
+    <string name="title_activity_ponto_detail">Detalhes do Ponto</string>
 
 </resources>

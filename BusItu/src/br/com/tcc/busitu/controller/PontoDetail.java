@@ -12,11 +12,13 @@ import android.support.v4.app.ListFragment;
 import android.support.v4.widget.SimpleCursorAdapter;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import br.com.tcc.busitu.R;
@@ -41,12 +43,12 @@ public class PontoDetail extends FragmentActivity {
 		}
 	}
 
-/*	@Override
+	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.ponto_detail, menu);
 		return true;
-	}*/
+	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
@@ -57,6 +59,24 @@ public class PontoDetail extends FragmentActivity {
 		if (id == R.id.action_settings) {
 			return true;
 		}
+//		if(id == R.id.action_ponto_location) {
+			
+//			double latitude = latlng.latitude;
+//            double longitude = latlng.longitude;
+//            Location busLocation = new Location("");
+//            busLocation.setLatitude(latitude);
+//            busLocation.setLongitude(longitude);
+//             
+//            // \n is for new line
+//            Log.d("gps",latitude + " " + longitude );
+////            Toast.makeText(getActivity().getApplicationContext(), "Your Location is - \nLat: " + latitude + "\nLong: " + longitude, Toast.LENGTH_LONG).show();
+//			Intent it = new Intent(getApplicationContext(), MapActivity.class);
+//			it.putExtra("currentLocation", busLocation);
+//			it.putExtra("pontoNome", nome);
+//			it.putExtra("fromPontoDetail", true);
+//			startActivity(it);
+			
+//		}
 		return super.onOptionsItemSelected(item);
 	}
 
@@ -121,10 +141,10 @@ public class PontoDetail extends FragmentActivity {
 					container, false);
 			
 			TextView txtNome;
-			ImageButton btnNavegar;
+			ImageView btnNavegar;
 			
 			txtNome = (TextView) rootView.findViewById(R.id.txtNomePonto);
-			btnNavegar = (ImageButton) rootView.findViewById(R.id.btnLocalizacao);
+			btnNavegar = (ImageView) rootView.findViewById(R.id.btnLocalizacao);
 			
 			txtNome.setText(nome);
 			
@@ -134,33 +154,21 @@ public class PontoDetail extends FragmentActivity {
 				@Override
 				public void onClick(View v) {
 					
-					GPSTracker gps = new GPSTracker(getActivity());
-
-					 
-		            // check if GPS enabled     
-		            if(gps.canGetLocation()){
 		                 
 		                double latitude = latlng.latitude;
 		                double longitude = latlng.longitude;
-		                Location mCurrentLocation = new Location("");
-		                mCurrentLocation.setLatitude(latitude);
-		                mCurrentLocation.setLongitude(longitude);
+		                Location busLocation = new Location("");
+		                busLocation.setLatitude(latitude);
+		                busLocation.setLongitude(longitude);
 		                 
 		                // \n is for new line
 		                Log.d("gps",latitude + " " + longitude );
 //		                Toast.makeText(getActivity().getApplicationContext(), "Your Location is - \nLat: " + latitude + "\nLong: " + longitude, Toast.LENGTH_LONG).show();
 						Intent it = new Intent(getActivity(), MapActivity.class);
-						it.putExtra("currentLocation", mCurrentLocation);
+						it.putExtra("currentLocation", busLocation);
+						it.putExtra("pontoNome", nome);
 						it.putExtra("fromPontoDetail", true);
 						startActivity(it);
-		            }
-		            else {
-		                // can't get location
-		                // GPS or Network is not enabled
-		                // Ask user to enable GPS/network in settings
-		                gps.showSettingsAlert();
-		            }
-					
 	
 					
 					

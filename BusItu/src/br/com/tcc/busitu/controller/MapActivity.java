@@ -3,11 +3,11 @@ package br.com.tcc.busitu.controller;
 import java.util.ArrayList;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
 import android.view.Menu;
 import br.com.tcc.busitu.R;
+import br.com.tcc.busitu.model.PontoBean;
 import br.com.tcc.busitu.model.PontoDAO;
 import br.com.tcc.busitu.util.GPSTracker;
 
@@ -16,9 +16,16 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+
+
+/**
+ * @see http://www.androidhive.info/2012/07/android-gps-location-manager-tutorial/
+ * 
+ * @author marco
+ *
+ */
 public class MapActivity extends Activity {
 	
 	  private GoogleMap map;
@@ -31,7 +38,7 @@ public class MapActivity extends Activity {
 	    setContentView(R.layout.fragment_map);
 	    
 	    Bundle extras = getIntent().getExtras();
-	    
+	    String nome="";
 	    boolean isFromPontodetail = extras.getBoolean("fromPontoDetail");
 	    Location mCurrentLocation = (Location) extras.get("currentLocation");
 	    
@@ -45,25 +52,27 @@ public class MapActivity extends Activity {
 	    
 	    if(isFromPontodetail){
 	    	
-	    	addMarker(mLocation);
+	    	nome = extras.getString("pontoNome");
+	    	
+	    	addBusMarker(mLocation, nome);
 	    	
 	    }else {
 	    	
 		    ponto = new PontoDAO(getApplicationContext());
 		    gps = new GPSTracker(getApplicationContext());
 		    
-		    ArrayList<Location> locationList = new ArrayList<Location>();
+		    ArrayList<PontoBean> locationList = new ArrayList<PontoBean>();
 		    
 		    locationList = gps.getLocationList(ponto.buscarPontos());
 		    
-		    Marker markerMyLocation = map.addMarker(new MarkerOptions().position(mLocation)
-		        .title("Minha Localização"));
+		    addMyLocationMarker(mLocation);
 		    
-		    for (Location location : locationList) {
-				double lat = location.getLatitude();
-				double longi = location.getLongitude();
+		    for (PontoBean location : locationList) {
+				double lat = location.getLat();
+				double longi = location.getLng();
+				nome = location.getEndereco();
 				LatLng mLatLong = new LatLng(lat, longi);
-				addMarker(mLatLong);
+				addBusMarker(mLatLong, nome);
 		    }
 	    	
 	    }
@@ -89,9 +98,25 @@ public class MapActivity extends Activity {
 //	    map.animateCamera(CameraUpdateFactory.zoomTo(10), 2000, null);
 	  }
 	  
-	  public void addMarker(LatLng latLong){
-		  map.addMarker(new MarkerOptions().position(latLong)
-				  .title("Ponto de parada"));
+	  public void addBusMarker(LatLng latLong, String busStopName){
+		  
+			  MarkerOptions busStopMarkerOptions = new MarkerOptions();
+			  busStopMarkerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_geolocation_busstop));
+			  busStopMarkerOptions.position(latLong);
+			  busStopMarkerOptions.title("Ponto de parada");
+			  busStopMarkerOptions.snippet(busStopName);
+			  map.addMarker(busStopMarkerOptions);
+			  
+
+	  }
+	  
+	  public void addMyLocationMarker(LatLng latlng){
+		  
+		  MarkerOptions myLocationMarkerOptions = new MarkerOptions();
+		  myLocationMarkerOptions.position(latlng);
+		  myLocationMarkerOptions.title("Você está aqui");
+		  map.addMarker(myLocationMarkerOptions);
+		  
 	  }
 
 	  @Override

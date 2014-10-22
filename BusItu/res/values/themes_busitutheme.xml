@@ -3,14 +3,11 @@
 <!-- Generated with http://android-holo-colors.com -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-  <style name="busituTheme" parent="@style/_busituTheme"/>
+    <style name="busituTheme" parent="@style/_busituTheme" />
 
-  <style name="_busituTheme" parent="android:Theme.Holo.Light.DarkActionBar">
-
-    <item name="android:editTextBackground">@drawable/busitutheme_edit_text_holo_light</item>
-    
-    
-            <item name="android:actionBarItemBackground">@drawable/selectable_background_busitutheme</item>
+    <style name="_busituTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+        <item name="android:editTextBackground">@drawable/busitutheme_edit_text_holo_light</item>
+        <item name="android:actionBarItemBackground">@drawable/selectable_background_busitutheme</item>
         <item name="android:popupMenuStyle">@style/PopupMenu.Busitutheme</item>
         <item name="android:dropDownListViewStyle">@style/DropDownListView.Busitutheme</item>
         <item name="android:actionBarTabStyle">@style/ActionBarTabStyle.Busitutheme</item>
@@ -19,42 +16,33 @@
         <item name="android:actionModeBackground">@drawable/cab_background_top_busitutheme</item>
         <item name="android:actionModeSplitBackground">@drawable/cab_background_bottom_busitutheme</item>
         <item name="android:actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Busitutheme</item>
+        <item name="android:textColorHighlight">#99005e5e</item>
+        <item name="android:textSelectHandleLeft">@drawable/busitutheme_text_select_handle_left</item>
+        <item name="android:textSelectHandleRight">@drawable/busitutheme_text_select_handle_right</item>
+        <item name="android:textSelectHandle">@drawable/busitutheme_text_select_handle_middle</item>
+        <item name="android:autoCompleteTextViewStyle">@style/AutoCompleteTextViewbusituTheme</item>
+        <item name="android:listChoiceIndicatorMultiple">@drawable/busitutheme_btn_check_holo_light</item>
+        <item name="android:listChoiceIndicatorSingle">@drawable/busitutheme_btn_radio_holo_light</item>
+        <item name="android:buttonStyle">@style/ButtonbusituTheme</item>
+        <item name="android:imageButtonStyle">@style/ImageButtonbusituTheme</item>
+        <item name="android:dropDownSpinnerStyle">@style/SpinnerbusituTheme</item>
+        <item name="android:buttonStyleToggle">@style/TogglebusituTheme</item>
+        <item name="android:listChoiceBackgroundIndicator">@drawable/busitutheme_list_selector_holo_light</item>
+        <item name="android:activatedBackgroundIndicator">@drawable/busitutheme_activated_background_holo_light</item>
+        <item name="android:fastScrollThumbDrawable">@drawable/busitutheme_fastscroll_thumb_holo</item>
+    </style>
 
-    <item name="android:textColorHighlight">#99005e5e</item>
-    <item name="android:textSelectHandleLeft">@drawable/busitutheme_text_select_handle_left</item>
-    <item name="android:textSelectHandleRight">@drawable/busitutheme_text_select_handle_right</item>
-    <item name="android:textSelectHandle">@drawable/busitutheme_text_select_handle_middle</item>
-
-    <item name="android:autoCompleteTextViewStyle">@style/AutoCompleteTextViewbusituTheme</item>
-
-    <item name="android:listChoiceIndicatorMultiple">@drawable/busitutheme_btn_check_holo_light</item>
-
-    <item name="android:listChoiceIndicatorSingle">@drawable/busitutheme_btn_radio_holo_light</item>
-
-    <item name="android:buttonStyle">@style/ButtonbusituTheme</item>
-
-    <item name="android:imageButtonStyle">@style/ImageButtonbusituTheme</item>
-
-    <item name="android:dropDownSpinnerStyle">@style/SpinnerbusituTheme</item>
-
-    <item name="android:buttonStyleToggle">@style/TogglebusituTheme</item>
-
-    <item name="android:listChoiceBackgroundIndicator">@drawable/busitutheme_list_selector_holo_light</item>
-
-    <item name="android:activatedBackgroundIndicator">@drawable/busitutheme_activated_background_holo_light</item>
-
-    <item name="android:fastScrollThumbDrawable">@drawable/busitutheme_fastscroll_thumb_holo</item>
-    
-    
-
-  </style>
-  
-      <style name="ActionBar.Solid.Busitutheme" parent="@android:style/Widget.Holo.ActionBar.Solid">
+    <style name="ActionBar.Solid.Busitutheme" parent="@android:style/Widget.Holo.ActionBar.Solid">
         <item name="android:background">@drawable/ab_solid_busitutheme</item>
         <item name="android:backgroundStacked">@drawable/ab_stacked_solid_busitutheme</item>
         <item name="android:backgroundSplit">@drawable/ab_bottom_solid_busitutheme</item>
         <item name="android:progressBarStyle">@style/ProgressBar.Busitutheme</item>
+        <item name="android:titleTextStyle">@style/MyTheme.ActionBar.TitleTextStyle</item>
     </style>
+    
+    <style name="MyTheme.ActionBar.TitleTextStyle" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+    <item name="android:textColor">@android:color/white</item>
+  </style>
 
     <style name="ActionBar.Transparent.Busitutheme" parent="@android:style/Widget.Holo.ActionBar">
         <item name="android:background">@drawable/ab_transparent_busitutheme</item>
@@ -62,7 +50,7 @@
     </style>
 
     <style name="PopupMenu.Busitutheme" parent="@android:style/Widget.Holo.ListPopupWindow">
-        <item name="android:popupBackground">@drawable/menu_dropdown_panel_busitutheme</item>	
+        <item name="android:popupBackground">@drawable/menu_dropdown_panel_busitutheme</item>
     </style>
 
     <style name="DropDownListView.Busitutheme" parent="@android:style/Widget.Holo.ListView.DropDown">
@@ -78,11 +66,11 @@
         <item name="android:popupBackground">@drawable/menu_dropdown_panel_busitutheme</item>
         <item name="android:dropDownSelector">@drawable/selectable_background_busitutheme</item>
     </style>
-    
+
     <style name="ProgressBar.Busitutheme" parent="@android:style/Widget.Holo.ProgressBar.Horizontal">
         <item name="android:progressDrawable">@drawable/progress_horizontal_busitutheme</item>
     </style>
-    
+
     <style name="ActionButton.CloseMode.Busitutheme" parent="@android:style/Widget.Holo.ActionButton.CloseMode">
         <item name="android:background">@drawable/btn_cab_done_busitutheme</item>
     </style>

@@ -4,6 +4,7 @@ package br.com.tcc.busitu.model;
 import java.io.Serializable;
 
 import android.database.Cursor;
+import android.location.Location;
 
 public class PontoBean implements Serializable{
 
@@ -16,8 +17,9 @@ public class PontoBean implements Serializable{
 	
 	private int _id;
 	private String endereco;
-	private long lat;
-	private long longi;
+	private double lat;
+	private double lng;
+	private Location pontoLocation;
 	
 	private Cursor cursor;
 	
@@ -40,23 +42,35 @@ public class PontoBean implements Serializable{
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
-	public long getLat() {
-		return lat;
-	}
-	public void setLat(long lat) {
-		this.lat = lat;
-	}
-	public long getLongi() {
-		return longi;
-	}
-	public void setLongi(long longi) {
-		this.longi = longi;
-	}
 	public Cursor getCursor() {
 		return cursor;
 	}
 	public void setCursor(Cursor cursor) {
 		this.cursor = cursor;
+	}
+
+	public double getLat() {
+		return lat;
+	}
+
+	public void setLat(double lat) {
+		this.lat = lat;
+	}
+
+	public double getLng() {
+		return lng;
+	}
+
+	public void setLng(double lng) {
+		this.lng = lng;
+	}
+
+	public Location getPontoLocation() {
+		return pontoLocation;
+	}
+
+	public void setPontoLocation(Location pontoLocation) {
+		this.pontoLocation = pontoLocation;
 	}
 	
 	
