@@ -14,8 +14,8 @@
         <TextView
             android:id="@+id/labelPesquisar"
             style="@style/Header_Green"
-            android:text="PESQUISAR"
-            android:gravity="center" />
+            android:gravity="center"
+            android:text="PESQUISAR" />
 
         <LinearLayout
             android:id="@+id/llPesquisar"
@@ -23,8 +23,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
             android:layout_marginLeft="12dp"
-            android:background="@android:color/white"
             android:layout_marginRight="12dp"
+            android:background="@android:color/white"
             android:orientation="vertical"
             android:padding="4dp" >
 
@@ -47,7 +47,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Bairro" />
+                    android:text="Região" />
 
                 <RadioButton
                     android:id="@+id/checkBoxPesquisarLinha"
@@ -62,7 +62,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:hint="Rua, Bairro ou Linha"
+                android:hint="Rua, Região ou Linha"
                 android:inputType="textPostalAddress" />
 
             <Button
@@ -79,8 +79,7 @@
             android:id="@+id/labelNavegar"
             style="@style/Header_Green"
             android:gravity="center"
-            android:text="CRIAR ROTA"
-             />
+            android:text="CRIAR ROTA" />
 
         <LinearLayout
             android:id="@+id/llRota"
@@ -88,8 +87,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
             android:layout_marginLeft="12dp"
-            android:background="@android:color/white"
             android:layout_marginRight="12dp"
+            android:background="@android:color/white"
             android:orientation="vertical"
             android:padding="4dp" >
 
@@ -103,23 +102,20 @@
                     android:id="@+id/checkBoxNavegarPartidaRua"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_weight="1"
                     android:checked="true"
+                    android:gravity="center"
                     android:text="Rua" />
 
                 <RadioButton
                     android:id="@+id/checkBoxNavegarPartidaBairro"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:text="Bairro" />
-
-                <RadioButton
-                    android:id="@+id/checkBoxNavegarPartidaLinha"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Linha" />
+                    android:gravity="center"
+                    android:text="Região" />
             </RadioGroup>
 
             <EditText
@@ -140,23 +136,20 @@
                     android:id="@+id/checkBoxRuaDestino"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_weight="1"
                     android:checked="true"
+                    android:gravity="center"
                     android:text="Rua" />
 
                 <RadioButton
                     android:id="@+id/checkBoxBairroDestino"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:text="Bairro" />
-
-                <RadioButton
-                    android:id="@+id/checkBoxLinhaDestino"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Linha" />
+                    android:gravity="center"
+                    android:text="Região" />
             </RadioGroup>
 
             <EditText

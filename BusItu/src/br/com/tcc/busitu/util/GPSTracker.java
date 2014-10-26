@@ -50,44 +50,39 @@ public class GPSTracker extends Service implements LocationListener{
         getLocation();
     }
     
-    public ArrayList<PontoBean> getLocationList(Cursor mLocations){
-    	
-    	if(mLocations.moveToFirst()){
-			
-			Location actualLocation = getLocation();
+	public ArrayList<PontoBean> getLocationList(Cursor pontoLocations) {
+		// Se a lista de pontos do banco não for nula
+		if (pontoLocations.moveToFirst()) {
+			Location minhaLocalizacao = getLocation();
 			ArrayList<PontoBean> pontoLocationList = new ArrayList<PontoBean>();
-			
-    		while(mLocations.moveToNext()){
-    			
-    			double mLat = mLocations.getDouble(mLocations.getColumnIndex((PontoBean.COL_LAT)));
-    			double mLong = mLocations.getDouble(mLocations.getColumnIndex((PontoBean.COL_LONG)));
-    			String nome = mLocations.getString(mLocations.getColumnIndex((PontoBean.COL_ENDERECO)));
-    			int id = mLocations.getInt(mLocations.getColumnIndex(PontoBean.COL_ID));
-    			
-    			Location pontoLocation = new Location("");
-    			
-    			pontoLocation.setLongitude(mLong);
-    			pontoLocation.setLatitude(mLat);
-    			
-    			if((int) pontoLocation.distanceTo(actualLocation) <= 1000){
-    				
-    				PontoBean pontoBean = new PontoBean();
-        			pontoBean.setLat(mLat);
-        			pontoBean.setLng(mLong);
-        			pontoBean.setPontoLocation(pontoLocation);
-        			pontoBean.setEndereco(nome);
-        			pontoBean.set_id(id);
-    				
-    				pontoLocationList.add(pontoBean);
-    				
-    			}
-    		}
-    		    		
-    		return pontoLocationList;
-    	}
-    	
-    	return null;
-    }
+			do {
+				// Recupere os dados o banco
+				double pontoLat = pontoLocations.getDouble(pontoLocations.getColumnIndex((PontoBean.COL_LAT)));
+				double pontoLng = pontoLocations.getDouble(pontoLocations.getColumnIndex((PontoBean.COL_LONG)));
+				String pontoEnd = pontoLocations.getString(pontoLocations.getColumnIndex((PontoBean.COL_ENDERECO)));
+				int pontoID = pontoLocations.getInt(pontoLocations.getColumnIndex(PontoBean.COL_ID));
+
+				// Crie um novo objeto localizacao para armzenar meu ponto a ser comparado
+				Location pontoLocation = new Location("");
+				pontoLocation.setLongitude(pontoLng);
+				pontoLocation.setLatitude(pontoLat);
+
+				// Se a localizacao do ponto for menor ou igual que 500 metros, armazene no ArrayList
+				if ((int) pontoLocation.distanceTo(minhaLocalizacao) <= 500) {
+					PontoBean pontoBean = new PontoBean();
+					pontoBean.setLat(pontoLat);
+					pontoBean.setLng(pontoLng);
+					pontoBean.setPontoLocation(pontoLocation);
+					pontoBean.setEndereco(pontoEnd);
+					pontoBean.set_id(pontoID);
+					pontoLocationList.add(pontoBean);
+
+				}
+			} while (pontoLocations.moveToNext());
+			return pontoLocationList;
+		}
+		return new ArrayList<PontoBean>();
+	}
  
     public Location getLocation() {
         try {

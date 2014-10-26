@@ -20,7 +20,7 @@ import br.com.tcc.busitu.model.LinhaBean;
 import br.com.tcc.busitu.model.PercursoBean;
 import br.com.tcc.busitu.util.Util;
 
-public class LinhasDetail extends FragmentActivity {
+public class LinhasDetailActivity extends FragmentActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

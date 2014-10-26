@@ -83,7 +83,7 @@ public class NavegarActivity extends Fragment {
 						b.putSerializable("LinhaBean", linhaBean);
 						i.putExtras(b);
 						i.setClass(getActivity().getApplicationContext(),
-								LinhasResultFragment.class);
+								LinhasResultActivity.class);
 						startActivity(i);
 					} else {
 						Toast.makeText(getActivity().getApplicationContext(),
@@ -99,7 +99,7 @@ public class NavegarActivity extends Fragment {
 						b.putSerializable("LinhaBean", linhaBean);
 						i.putExtras(b);
 						i.setClass(getActivity().getApplicationContext(),
-								LinhasResultFragment.class);
+								LinhasResultActivity.class);
 						startActivity(i);
 					} else {
 						Toast.makeText(getActivity().getApplicationContext(),
@@ -114,7 +114,7 @@ public class NavegarActivity extends Fragment {
 						b.putSerializable("LinhaBean", linhaBean);
 						i.putExtras(b);
 						i.setClass(getActivity().getApplicationContext(),
-								LinhasResultFragment.class);
+								LinhasResultActivity.class);
 						startActivity(i);
 					} else {
 						Toast.makeText(getActivity().getApplicationContext(),
@@ -176,7 +176,7 @@ public class NavegarActivity extends Fragment {
 					b.putSerializable("LinhaBean", linhaBean);
 					i.putExtras(b);
 					i.setClass(getActivity().getApplicationContext(),
-							LinhasResultFragment.class);
+							LinhasResultActivity.class);
 					startActivity(i);
 				} else {
 					Toast.makeText(getActivity().getApplicationContext(),

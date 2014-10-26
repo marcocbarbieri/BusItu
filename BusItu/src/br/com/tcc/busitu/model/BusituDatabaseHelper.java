@@ -13,7 +13,7 @@ public class BusituDatabaseHelper extends SQLiteAssetHelper {
 	// If you change the database schema, you must increment the database
 	// version.
 	public static final int DATABASE_VERSION = 1;
-	public static final String DATABASE_NAME = "busituDEMO_v3.db";
+	public static final String DATABASE_NAME = "busituDEMO_v4.db";
 	
 	private static BusituDatabaseHelper singleton;
 	

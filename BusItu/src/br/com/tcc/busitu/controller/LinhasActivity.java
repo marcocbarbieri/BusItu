@@ -62,7 +62,7 @@ public class LinhasActivity extends ListFragment {
 		if(percursoBean.getResultado() != null && percursoBean.getResultado().moveToFirst()){
 			b.putSerializable("PercursoBean", percursoBean);
 			i.putExtras(b);
-			i.setClass(getActivity(), LinhasDetail.class);
+			i.setClass(getActivity(), LinhasDetailActivity.class);
 			startActivity(i);
 		}
 		

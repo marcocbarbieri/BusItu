@@ -27,7 +27,7 @@ import br.com.tcc.busitu.model.PercursoBean;
 import br.com.tcc.busitu.model.PercursoDAO;
 import br.com.tcc.busitu.util.GPSTracker;
 
-public class PontoDetail extends FragmentActivity {
+public class PontoDetailActivity extends FragmentActivity {
 	
 	private static LatLng latlng;
 	private static String nome;
@@ -129,7 +129,7 @@ public class PontoDetail extends FragmentActivity {
 			if(percursoBean.getResultado() != null && percursoBean.getResultado().moveToFirst()){
 				b.putSerializable("PercursoBean", percursoBean);
 				i.putExtras(b);
-				i.setClass(getActivity(), LinhasDetail.class);
+				i.setClass(getActivity(), LinhasDetailActivity.class);
 				startActivity(i);
 			}
 		};

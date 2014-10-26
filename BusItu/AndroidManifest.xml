@@ -73,7 +73,7 @@
                 android:value="br.com.tcc.busitu.controller.MainActivity" />
         </activity>
         <activity
-            android:name="br.com.tcc.busitu.controller.PontoDetail"
+            android:name="br.com.tcc.busitu.controller.PontoDetailActivity"
             android:icon="@drawable/ic_busitu_46_white"
             android:label="@string/title_activity_ponto_detail" >
         </activity>

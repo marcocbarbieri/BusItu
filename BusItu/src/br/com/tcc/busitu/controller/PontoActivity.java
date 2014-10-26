@@ -22,7 +22,7 @@ import br.com.tcc.busitu.model.LinhaDAO;
 import br.com.tcc.busitu.model.PontoDAO;
 import br.com.tcc.busitu.util.GPSTracker;
 
-public class PontoFragment extends ListFragment {
+public class PontoActivity extends ListFragment {
 	
 	Cursor mCursor;
 	PontoDAO pontoDAO;
@@ -69,7 +69,7 @@ public class PontoFragment extends ListFragment {
 			i.putExtras(b);
 			i.putExtra("paradaNome", nome);
 			i.putExtra("pontoLocation", mLocation);
-			i.setClass(getActivity(), PontoDetail.class);
+			i.setClass(getActivity(), PontoDetailActivity.class);
 			startActivity(i);
 		
 		}

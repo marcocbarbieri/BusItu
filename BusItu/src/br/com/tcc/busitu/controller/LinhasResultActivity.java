@@ -25,7 +25,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.ListFragment;
 import android.support.v4.widget.SimpleCursorAdapter;
 
-public class LinhasResultFragment extends FragmentActivity {
+public class LinhasResultActivity extends FragmentActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -103,7 +103,7 @@ public class LinhasResultFragment extends FragmentActivity {
 			if(percursoBean.getResultado() != null && percursoBean.getResultado().moveToFirst()){
 				b.putSerializable("PercursoBean", percursoBean);
 				i.putExtras(b);
-				i.setClass(getActivity(), LinhasDetail.class);
+				i.setClass(getActivity(), LinhasDetailActivity.class);
 				startActivity(i);
 			}
 			
